@@ -19,32 +19,32 @@ class PhotoGallery extends StatelessWidget {
             StaggeredGridTile.count(
               crossAxisCellCount: 2,
               mainAxisCellCount: 2,
-              child: Image.network(PhotosLink.imgList[0]),
+              child: Image.network(PhotosLink.imgList[0],fit: BoxFit.cover,),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 2,
               mainAxisCellCount: 2,
-              child: Image.network(PhotosLink.imgList[1]),
+              child: Image.network(PhotosLink.imgList[1],fit: BoxFit.cover,),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 4,
               mainAxisCellCount: 3,
-              child: Image.network(PhotosLink.imgList[2]),
+              child: Image.network(PhotosLink.imgList[2],fit: BoxFit.cover,),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 2,
               mainAxisCellCount: 2,
-              child: Image.network(PhotosLink.imgList[3]),
+              child: Image.network(PhotosLink.imgList[3],fit: BoxFit.cover,),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 2,
               mainAxisCellCount: 2,
-              child: Image.network(PhotosLink.imgList[4]),
+              child: Image.network(PhotosLink.imgList[4],fit: BoxFit.cover,),
             ),
             StaggeredGridTile.count(
               crossAxisCellCount: 4,
               mainAxisCellCount: 3,
-              child: Image.network(PhotosLink.imgList[5]),
+              child: Image.network(PhotosLink.imgList[5],fit: BoxFit.cover,),
             ),
           ],
         ),
