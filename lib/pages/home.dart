@@ -260,7 +260,11 @@ class _HomeState extends State<Home> {
               onTabChange: (index) {
                 setState(() {
                   if(index != 0){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>pages[index]));
+                    if(index == 1){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BootCamp()));
+                    }else if(index ==2){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                    }
                   }
                 });
               },

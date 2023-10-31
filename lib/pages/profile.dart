@@ -3,19 +3,42 @@ import 'package:kodeeo_app/core/colors.dart';
 import 'dart:math' as math;
 
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/widgets/my_course.dart';
+import 'package:kodeeo_app/widgets/profile_info.dart';
+import 'package:kodeeo_app/widgets/profile_settings.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
+  const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   String imgLink =
       "https://imgv3.fotor.com/images/gallery/Realistic-Male-Profile-Picture.jpg";
+  late String _name, _email, _phone, _device;
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+    _tabController.animateTo(1);
+  }
 
   @override
   Widget build(BuildContext context) {
+    _name = "Angelica Melli";
+    _email = "example@gmail.com";
+    _phone = "01714485479";
+    _device = "Laptop";
     return Scaffold(
         body: Container(
-          margin: EdgeInsets.only(top: 40, left: 25, right: 25),
-          child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
+      margin: EdgeInsets.only(top: 40, left: 25, right: 25),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
           Container(
             height: 230,
             child: Stack(
@@ -99,23 +122,28 @@ class Profile extends StatelessWidget {
                           child: Image.network(imgLink)),
                     )),
                 Positioned(
-                  top: 20,
+                    top: 20,
                     left: 20,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(60))
-
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(60))),
+                      child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.arrow_back_ios_new),
                       ),
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Icon(Icons.arrow_back_ios_new),
-                  ),
-                )),
+                    )),
                 Positioned(
-                    top: 30,
-                    left: displayWidth(context)*0.36,
-                    child: Text("Profile",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22,color:Color(0xFF333664), ),),
+                  top: 30,
+                  left: displayWidth(context) * 0.36,
+                  child: Text(
+                    "Profile",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: Color(0xFF333664),
+                    ),
+                  ),
                 ),
                 Positioned(
                     top: 20,
@@ -123,27 +151,24 @@ class Profile extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(60))
-
-                      ),
+                          borderRadius: BorderRadius.all(Radius.circular(60))),
                       child: IconButton(
-                        onPressed: ()  {
-
+                        onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) =>
-                                AlertDialog(
-                                  title: const Text("Profile Info"),
-                                  content: const Text("This container is under maintenance"),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: const Text("okay"),
-                                    ),
-                                  ],
+                            builder: (context) => AlertDialog(
+                              title: const Text("Profile Info"),
+                              content: const Text(
+                                  "This container is under maintenance"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("okay"),
                                 ),
+                              ],
+                            ),
                           );
                         },
                         icon: Icon(Icons.dashboard),
@@ -154,7 +179,7 @@ class Profile extends StatelessWidget {
           ),
           Container(
             child: Text(
-              "Angelica Melli",
+              _name,
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Color(0xFF333664),
@@ -162,8 +187,56 @@ class Profile extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
           ),
-      ],
-    ),
-        ));
+          Container(
+            height: 62,
+            child: TabBar(
+                indicatorPadding: EdgeInsets.zero,
+                controller: _tabController,
+                tabs: [
+                  Tab(
+                    child: Text(
+                      "My course",
+                      style: TextStyle(fontSize: 11),
+                    ),
+                    icon: Icon(
+                      Icons.history_edu_rounded,
+                      size: 18,
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      "Profile ",
+                      style: TextStyle(fontSize: 11),
+                    ),
+                    icon: Icon(
+                      Icons.person,
+                      size: 18,
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      "Profile Settings",
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    icon: Icon(
+                      Icons.settings,
+                      size: 18,
+                    ),
+                  ),
+                ]),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            width:double.infinity ,
+            height: displayHeight(context)*0.5,
+            child: TabBarView(controller: _tabController, children: [
+            MyCourse(),
+              ProfileInfo(),
+             ProfileSettings(),
+            ]),
+          ),
+        ],
+      ),
+    ));
   }
 }
