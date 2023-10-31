@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ca7c486-68be-4f2c-8c52-0e00f1ce83b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/core/string_methods.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/data/model/course_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/data/model/notification_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/notification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/notification.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/photo_gallery.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/photo_gallery.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="3ca7c486-68be-4f2c-8c52-0e00f1ce83b2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
