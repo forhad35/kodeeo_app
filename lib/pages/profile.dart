@@ -23,8 +23,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-    _tabController.animateTo(1);
+    _tabController = TabController(length: 2, vsync: this);
+    // _tabController.animateTo(1);
   }
 
   @override
@@ -213,16 +213,16 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       size: 18,
                     ),
                   ),
-                  Tab(
-                    child: Text(
-                      "Profile Settings",
-                      style: TextStyle(fontSize: 10),
-                    ),
-                    icon: Icon(
-                      Icons.settings,
-                      size: 18,
-                    ),
-                  ),
+                  // Tab(
+                  //   child: Text(
+                  //     "Profile Settings",
+                  //     style: TextStyle(fontSize: 10),
+                  //   ),
+                  //   icon: Icon(
+                  //     Icons.settings,
+                  //     size: 18,
+                  //   ),
+                  // ),
                 ]),
           ),
           Container(
@@ -232,7 +232,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             child: TabBarView(controller: _tabController, children: [
             MyCourse(),
               ProfileInfo(),
-             ProfileSettings(),
             ]),
           ),
         ],
