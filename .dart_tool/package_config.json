@@ -86,8 +86,14 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_staggered_grid_view",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_staggered_grid_view-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_svg",
-      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.0.7",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_svg-2.0.8",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
@@ -201,19 +207,19 @@
     },
     {
       "name": "vector_graphics",
-      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics-1.1.9",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics-1.1.9+1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "vector_graphics_codec",
-      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_codec-1.1.9",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_codec-1.1.9+1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "vector_graphics_compiler",
-      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_compiler-1.1.9",
+      "rootUri": "file:///C:/Users/Dell/AppData/Local/Pub/Cache/hosted/pub.dev/vector_graphics_compiler-1.1.9+1",
       "packageUri": "lib/",
       "languageVersion": "2.19"
     },
@@ -242,7 +248,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-10-31T08:41:03.644493Z",
+  "generated": "2023-10-31T09:59:06.056532Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }
