@@ -154,24 +154,14 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.all(Radius.circular(60))),
                       child: IconButton(
                         onPressed: () {
-                          showDialog(
+                          showModalBottomSheet<void>(
                             context: context,
-                            builder: (context) => AlertDialog(
-                              title: const Text("Profile Info"),
-                              content: const Text(
-                                  "This container is under maintenance"),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text("okay"),
-                                ),
-                              ],
-                            ),
+                            builder: (BuildContext context) {
+                              return  ProfileSettings();
+                            },
                           );
                         },
-                        icon: Icon(Icons.dashboard),
+                        icon: Icon(Icons.settings),
                       ),
                     )),
               ],
@@ -213,16 +203,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       size: 18,
                     ),
                   ),
-                  // Tab(
-                  //   child: Text(
-                  //     "Profile Settings",
-                  //     style: TextStyle(fontSize: 10),
-                  //   ),
-                  //   icon: Icon(
-                  //     Icons.settings,
-                  //     size: 18,
-                  //   ),
-                  // ),
                 ]),
           ),
           Container(
