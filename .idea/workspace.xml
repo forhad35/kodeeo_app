@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ca7c486-68be-4f2c-8c52-0e00f1ce83b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/debug_android_application.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/flutter_assets.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/16ec7bd6265b5cbbac6665847c7932ad/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/a46f85df11ed3d278105635939097b84.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/a46f85df11ed3d278105635939097b84.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/model/photos_link.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/model/photos_link.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/photo_gallery.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/photo_gallery.dart" afterDir="false" />
-    </list>
+    <list default="true" id="3ca7c486-68be-4f2c-8c52-0e00f1ce83b2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
