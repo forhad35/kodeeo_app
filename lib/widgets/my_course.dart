@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/helper/display.dart';
 
 class MyCourse extends StatefulWidget {
   const MyCourse({super.key});
@@ -10,90 +11,44 @@ class MyCourse extends StatefulWidget {
 class _MyCourseState extends State<MyCourse> {
   @override
   Widget build(BuildContext context) {
+    // ========================== // Course  info  builder=================================
+
     return  ListView.builder(
-      itemCount: 1,
+        itemCount: 1,
         itemBuilder: (BuildContext context, int index){
-      return Card(
-       child: Container(
-          padding: EdgeInsets.all(10),
-          width: 300,
-          // color: Colors.blue,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(children: [
-                Text(
-                  "INSTRUCTOR NAME : ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  "Mustafizur Rahman",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-              Row(children: [
-                Text(
-                  "COURSE NAME : ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Column(children: [
-                  Text(
-                    "Advance Laravel",
-                    style: TextStyle(fontSize: 14),
-                    softWrap: true,
-                  )
-                ]),
-              ]),
-              Row(children: [
-                Text(
-                  "COURSE PRICE : ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  "12000.00",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-              Row(children: [
-                Text(
-                  "DUE AMOUNT :  ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  "7000.00",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-              Row(children: [
-                Text(
-                  "PAID STATUS :  ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  "Admission",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-              Row(children: [
-                Text(
-                  "CERTIFICATE STATUS  :  ",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-              Row(children: [
-                Text(
-                  "CLAIM CERTIFICATE  :  ",
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  "Claime Certificate",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ]),
-            ],
-          ),
-        ),
-      );
-    });
+          return Card(
+            child: Container(
+                height: displayHeight(context)*0.4,
+                padding: EdgeInsets.all(10),
+                width: displayWidth(context),
+                // ========================== // Course  info item builder=================================
+                child: ListView.builder(
+                    itemCount: 8,
+                    itemBuilder: (BuildContext item_context, int  item_index){
+                      return Container(
+                        margin: EdgeInsets.only(top: 5,bottom: 5),
+                        child: RichText(
+                          textAlign: TextAlign.start,
+                          text:  TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: " Instructor Name  : "
+                              ),
+                              TextSpan(
+                                  text: "Mustafizur Rahman "
+                              )
+
+                            ],
+                            style: TextStyle(
+                                color: Color(0xFF333664),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600),
+                          ),),
+                      );
+                    })
+
+            ),
+          );
+        });
   }
 }
