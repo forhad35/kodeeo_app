@@ -4,7 +4,7 @@ import 'dart:math' as math;
 
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/widgets/my_course.dart';
-import 'package:kodeeo_app/widgets/profile_info.dart';
+import 'package:kodeeo_app/widgets/profile_info2.dart';
 import 'package:kodeeo_app/widgets/profile_settings.dart';
 
 class Profile extends StatefulWidget {
@@ -102,7 +102,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ),
                       Positioned(
                         // top: 130,
-                          left: 110,
+                          left: (displayWidth(context)-185)/2,
                           bottom: 0,
                           child: Container(
                             width: 140,
@@ -136,35 +136,21 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           )),
                       Positioned(
                         top: 30,
-                        left: displayWidth(context) * 0.36,
-                        child: Text(
-                          "Profile",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                            color: Color(0xFF333664),
+                        left: (displayWidth(context)-145)/2,
+                        child: Container(
+                          // color:Colors.red,
+                          width: 100,
+                          child: Text(
+                            "Profile",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                              color: Color(0xFF333664),
+                            ),
                           ),
                         ),
                       ),
-                      Positioned(
-                          top: 20,
-                          right: 20,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(60))),
-                            child: IconButton(
-                              onPressed: () {
-                                showModalBottomSheet<void>(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return  ProfileSettings();
-                                  },
-                                );
-                              },
-                              icon: Icon(Icons.settings),
-                            ),
-                          )),
                     ],
                   ),
                 ),
@@ -208,8 +194,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 10),
-                  width:double.infinity ,
-                  height: displayHeight(context)*0.5,
+                  width:displayWidth(context),
+                  height: 440,
+
                   child: TabBarView(controller: _tabController, children: [
                     MyCourse(),
                     ProfileInfo(),
