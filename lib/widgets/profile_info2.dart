@@ -17,6 +17,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
     {"nametitle": "Phone", "name": "01752136445"},
     {"nametitle": "Device", "name": "Laptop"},
   ];
+  var userpass="kodeeo";
   var name=TextEditingController(text: "your name");
   var email=TextEditingController(text: "example.mail.com");
   var phone=TextEditingController(text: "017*******");
@@ -263,7 +264,20 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   ),
                   OutlinedButton(
                       onPressed: () {
+                        setState(() {
 
+                        if(oldPass.text!=userpass.toString()){
+                          alertbox("Kodeeo LTD", "Wrong old Password");
+                          print("wpp");
+
+                        }else if(newPass.text!=confirmPass.text){
+                          alertbox("Kodeeo LTD", "Password not match");
+                          print("not match");
+                        }else{
+                          alertbox("Kodeeo LTD", "Change Successfully");
+                          print("done");
+                        }
+                        });
                       },
                       style: ButtonStyle(
                         alignment: Alignment.center,
@@ -281,6 +295,16 @@ class _ProfileInfoState extends State<ProfileInfo> {
         );
       },
     );
-  }
+  } // modalBottomSheet
+
+void alertbox(String title, String message){
+    AlertDialog(
+      title: Text(title),
+      content: Text(message),
+      actions: [
+        OutlinedButton(onPressed: (){}, child: Text("OK"))
+      ],
+    );
+}
 }
 

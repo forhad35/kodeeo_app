@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Wed Nov 01 19:29:12 BDT 2023
+#Thu Nov 02 01:59:23 BDT 2023
 base.0=C\:\\Users\\Dell\\Documents\\kodeeo_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-=======
-#Wed Nov 01 15:09:05 BDT 2023
-base.0=/home/forhad/androidstudio/kodeeo_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
->>>>>>> 297d047f8563535c8d0690b7601d884d6d6700cd
 path.0=classes.dex
 renamed.0=classes.dex
