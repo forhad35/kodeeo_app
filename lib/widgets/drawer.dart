@@ -139,50 +139,46 @@ class Drawers extends StatelessWidget {
               ],
             ),
           ),
-         SizedBox(height: displayHeight(context)/3,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.facebook),color: Colors.blue,
-                onPressed: (){
-                  launcher.launchUrl(Uri.parse("https://www.facebook.com/Kodeeo/"));
-                },
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.twitter),color: Colors.blue,
-                onPressed: (){
-                  launcher.launchUrl(Uri.parse("https://twitter.com/KodeeoCom"));
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: FaIcon(FontAwesomeIcons.facebook),color: Colors.blue,
+                      onPressed: (){
+                        launcher.launchUrl(Uri.parse("https://www.facebook.com/Kodeeo/"));
+                      },
+                    ),
+                    IconButton(
+                      icon: FaIcon(FontAwesomeIcons.twitter),color: Colors.blue,
+                      onPressed: (){
+                        launcher.launchUrl(Uri.parse("https://twitter.com/KodeeoCom"));
 
-                },
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.linkedin),color: Colors.blue,
-                onPressed: (){
-                  launcher.launchUrl(Uri.parse("https://www.linkedin.com/company/kodeeo/"));
+                      },
+                    ),
+                    IconButton(
+                      icon: FaIcon(FontAwesomeIcons.linkedin),color: Colors.blue,
+                      onPressed: (){
+                        launcher.launchUrl(Uri.parse("https://www.linkedin.com/company/kodeeo/"));
 
-                },
-              ),
-              IconButton(
-                icon: FaIcon(FontAwesomeIcons.internetExplorer),color: Colors.blue,
-                onPressed: (){
-                  launcher.launchUrl(Uri.parse("https://www.kodeeo.com"));
-                },
-              ),
+                      },
+                    ),
+                    IconButton(
+                      icon: FaIcon(FontAwesomeIcons.internetExplorer),color: Colors.blue,
+                      onPressed: (){
+                        launcher.launchUrl(Uri.parse("https://www.kodeeo.com"));
+                      },
+                    ),
 
-            ],),
-          // Container(
-          //   margin: const EdgeInsets.only(bottom:50.0),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       // SizedBox(height: 100,width: MediaQuery.of(context).size.width*0.50,),
-          //       // IconButton(onPressed: (){
-          //       //   Navigator.of(context).pop();
-          //       // }, icon: Icon(Icons.cancel,color: Colors.pink,),iconSize: 50,)
-          //     ],
-          //   ),
-          // ),
+                  ],),
+              ),
+            ),
+          ),
+
 
 
         ],

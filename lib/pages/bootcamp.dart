@@ -34,14 +34,20 @@ You'll learn the most advanced cutting edge web technologies to built your websi
         scrollDirection: Axis.vertical,
         itemCount: myData.length,
         itemBuilder: (BuildContext context, int index) {
+          String discountPrice;
+          if(myData[index]["discoundPrice"] != null){
+             discountPrice =  myData[index]["discoundPrice"];
+          }else{
+            discountPrice = " ";
+          }
           return Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(top:10,bottom: 10,right: 15,left: 15),
             height: 530,
             width: MediaQuery.of(context).size.width,
             child: Card(
               surfaceTintColor: Colors.white,
               clipBehavior: Clip.antiAliasWithSaveLayer,
-              elevation: 3,
+              elevation: 2,
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                   color: Theme.of(context).colorScheme.outline,
@@ -54,8 +60,8 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                   Image.network(
                       fit: BoxFit.fill,
                       repeat: ImageRepeat.noRepeat,
-                      width: 700,
-                      height: 250,
+                      width: 600,
+                      height: 240,
                       "${myData[index]["image"]}" ),
                   Container(
                     margin: EdgeInsets.all(20),
@@ -65,7 +71,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                         Text(
                           "${myData[index]["name"]}" ,
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Container(
                             margin: EdgeInsets.only(top: 10),
@@ -84,7 +90,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                               text: TextSpan(
                                 children: [
                                   WidgetSpan(
-                                    child: Icon(Icons.offline_pin_outlined, size: 24),
+                                    child: Icon(Icons.offline_pin_outlined, size: 16),
                                   ),
                                   TextSpan(
                                     text: "${myData[index]["stutas"]} ",
@@ -105,12 +111,10 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                                 Text(
                                   "${myData[index]["CoursePrice"]}",
                                   style: TextStyle(
-
-                                      fontSize: 16, fontWeight: FontWeight.bold,height: 1,decoration: TextDecoration.lineThrough),textAlign: TextAlign.center,
+                                      fontSize: 16, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null),textAlign: TextAlign.center,
                                 ),
                                 Text(
-                                  "${myData[index]["discoundPrice"]}",
-
+                                  discountPrice.toString(),
                                   style: TextStyle(
 
                                       fontSize: 16, fontWeight: FontWeight.bold,height: 1),textAlign: TextAlign.center,

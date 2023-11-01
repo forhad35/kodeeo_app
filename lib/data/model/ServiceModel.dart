@@ -12,7 +12,7 @@ class ServiceDataList {
       new ServiceModel(
           imageUrl:
               "https://cdn1.iconfinder.com/data/icons/web-development-round/128/25-512.png",
-          title: "Website & Web Development",
+          title: "Website&Web Development",
           descption:
               'we will be create your web application from scratch. If you have idea about what you need to do, share us.'),
       new ServiceModel(
