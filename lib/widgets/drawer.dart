@@ -6,6 +6,7 @@ import 'package:kodeeo_app/pages/contact_page.dart';
 import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/photo_gallery.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 class Drawers extends StatelessWidget {
    Drawers({super.key});
   String imgLink = "https://cdn1.iconfinder.com/data/icons/neutro-essential/32/user-512.png";
@@ -144,19 +145,29 @@ class Drawers extends StatelessWidget {
             children: [
               IconButton(
                 icon: FaIcon(FontAwesomeIcons.facebook),color: Colors.blue,
-                onPressed: (){},
+                onPressed: (){
+                  launcher.launchUrl(Uri.parse("https://www.facebook.com/Kodeeo/"));
+                },
               ),
               IconButton(
                 icon: FaIcon(FontAwesomeIcons.twitter),color: Colors.blue,
-                onPressed: (){},
+                onPressed: (){
+                  launcher.launchUrl(Uri.parse("https://twitter.com/KodeeoCom"));
+
+                },
               ),
               IconButton(
                 icon: FaIcon(FontAwesomeIcons.linkedin),color: Colors.blue,
-                onPressed: (){},
+                onPressed: (){
+                  launcher.launchUrl(Uri.parse("https://www.linkedin.com/company/kodeeo/"));
+
+                },
               ),
               IconButton(
                 icon: FaIcon(FontAwesomeIcons.internetExplorer),color: Colors.blue,
-                onPressed: (){},
+                onPressed: (){
+                  launcher.launchUrl(Uri.parse("https://www.kodeeo.com"));
+                },
               ),
 
             ],),
