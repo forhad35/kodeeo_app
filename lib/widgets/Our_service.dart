@@ -2,6 +2,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/ServiceModel.dart';
+import 'package:kodeeo_app/helper/display.dart';
 class OurService  {
   // OurService({super.key});
   static var itemList= ServiceDataList().getData();
@@ -33,28 +34,41 @@ class OurService  {
   static Widget ourService_singlePage(){
     return Scaffold(
       appBar: AppBar(title: Text("Our Service"),centerTitle: true,),
-      body: ListView.builder(
-        itemCount: itemList.length,
-          itemBuilder: (BuildContext context ,int index){
-        return Container(
-          padding: EdgeInsets.all(5),
-          width: 200,
-          height: 250,
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-            children:[
-              SizedBox(height: 5,),
-              Image.network(itemList[index].imageUrl,width: 100,height: 70,),
-              Text(itemList[index].title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
-              Text(itemList[index].descption),
-              Divider()
+      body: Padding(
+        padding: const EdgeInsets.all(6.35),
+        child: Container(
+          child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(itemList.length, (index) {
+            return Container(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 2.0
+                  )
+                ]
+              ),
+              margin: EdgeInsets.all(5),
+              padding:EdgeInsets.all(7) ,
+              child: Column(
+              children:[
+                SizedBox(height: 5,),
+                Image.network(itemList[index].imageUrl,width: 50,height: 30,),
+                SizedBox(height: 5,),
+                Text(itemList[index].title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),),
+                SizedBox(height: 5,),
+                Text(itemList[index].descption,style: TextStyle(fontSize: 12),textAlign: TextAlign.justify,),
 
-            ]
+              ]
+              ),
+            );
+          })
           ),
-          ),
-        );
-      }),
+        ),
+      ),
     );
   }
 }

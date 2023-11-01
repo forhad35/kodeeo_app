@@ -27,7 +27,6 @@ class _HomeState extends State<Home> {
   var imgList = PhotosLink.imgList;
   @override
   Widget build(BuildContext context) {
-    var pages = [Home(),BootCamp(),Profile()];
     var myData = BootCamp.myData;
     var _width = MediaQuery.of(context).size.width;
     return Scaffold(
