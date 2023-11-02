@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/widgets/profile_settings.dart';
+import 'package:kodeeo_app/widgets/radio_button.dart';
 
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({super.key});
@@ -25,145 +26,149 @@ class _ProfileInfoState extends State<ProfileInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: displayWidth(context),
-      height: 360,
-      child: Column(
-        children: [
-          Container(
-            //width: displayWidth(context),
-              alignment: Alignment.topRight,
-              child: TextButton.icon(
-                  onPressed: () {
-                    setState(() {
-                      editFromText=true;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.mode_edit,
-                    size: 14,
+    return SingleChildScrollView(
+      child: Container(
+        width: displayWidth(context),
+        // height: 450,
+        child: Column(
+          children: [
+            Container(
+              //width: displayWidth(context),
+                alignment: Alignment.topRight,
+                child: TextButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        editFromText=true;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.mode_edit,
+                      size: 14,
+                    ),
+                    label: Text("Edit"))),
+            Container(
+              height: 351,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 0),
+                child: Form(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text("Name",style: TextStyle(fontSize: 16),),
+                        ),
+                        TextFormField(
+                          enabled: editFromText,
+                          controller: name,
+                          style: TextStyle(fontSize:18,color: Colors.indigo,height: 1),
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.orange)),
+                            disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text("Email",style: TextStyle(fontSize: 16),),
+                        ),
+                        TextFormField(
+                          enabled: editFromText,
+                          controller: email,
+                          style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
+                          decoration: InputDecoration(
+
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.orange)),
+                            disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text("Phone",style: TextStyle(fontSize: 16),),
+                        ),
+                        TextFormField(
+                          enabled: editFromText,
+                          controller: phone,
+                          style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
+                          decoration: InputDecoration(
+
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.orange)),
+                            disabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                borderSide:
+                                BorderSide(width: 1, color: Colors.indigo)),
+
+                          ),
+                        ),
+                        Transform.translate(offset:Offset(10, 10),child: Text("Update Type Of Your Device")),
+                        RadioButton(),
+                        // SizedBox(
+                        //   height: 10,
+                        // ),
+
+                      ],
+                    )),
+
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Visibility(
+                    visible: editFromText,
+                    child: ElevatedButton(onPressed: () {
+                      setState(() {
+                        editFromText=false;
+                      });
+                    },
+                      child: Text("Update Info"),style: ButtonStyle(enableFeedback: editFromText),),
                   ),
-                  label: Text("Edit"))),
-          Container(
-            height: 320,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
-              child: Form(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Name",style: TextStyle(fontSize: 16),),
-                      ),
-                      TextFormField(
-                        enabled: editFromText,
-                        controller: name,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1),
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Email",style: TextStyle(fontSize: 16),),
-                      ),
-                      TextFormField(
-                        enabled: editFromText,
-                        controller: email,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
-                        decoration: InputDecoration(
-
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Phone",style: TextStyle(fontSize: 16),),
-                      ),
-                      TextFormField(
-                        enabled: editFromText,
-                        controller: phone,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
-                        decoration: InputDecoration(
-
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
-
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-
-                    ],
-                  )),
-
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10,right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Visibility(
-                  visible: editFromText,
-                  child: ElevatedButton(onPressed: () {
-                    setState(() {
-                      editFromText=false;
-                    });
+                  ElevatedButton(onPressed: () {
+                    modalBottomSheet(context);
                   },
-                    child: Text("Update Info"),style: ButtonStyle(enableFeedback: editFromText),),
-                ),
-                ElevatedButton(onPressed: () {
-                  modalBottomSheet(context);
-                },
-                    child: Text("Change Password")),
-              ],
+                      child: Text("Change Password")),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    );;
+    );
   }
 
   void modalBottomSheet(BuildContext context){
@@ -258,6 +263,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                               BorderSide(width: 1, color: Colors.indigo)),
                         ),
                       ),
+
                     ],
                   )),
                   SizedBox(
