@@ -39,5 +39,9 @@ class NotificationData {
         "Tomorrow all students class suspends! Tomorrow all students class sTomorrow all students class s",
       false
     ),
+ NotificationModel("All DIST students",
+        "Tomorrow all students class suspends!",
+      false
+    ),
   ];
 }
