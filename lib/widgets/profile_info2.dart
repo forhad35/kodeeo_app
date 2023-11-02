@@ -193,6 +193,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                         controller: oldPass,
                         style: TextStyle(fontSize: 20,height: .8),
                         decoration: InputDecoration(
+
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
@@ -270,6 +271,9 @@ class _ProfileInfoState extends State<ProfileInfo> {
                           alertbox("Kodeeo LTD", "Wrong old Password");
                           print("wpp");
 
+                        }else if(newPass.text.isEmpty && confirmPass.text.isEmpty){
+                          alertbox("Kodeeo LTD", "Password is Empty");
+                          print("Empty pass");
                         }else if(newPass.text!=confirmPass.text){
                           alertbox("Kodeeo LTD", "Password not match");
                           print("not match");
@@ -298,13 +302,14 @@ class _ProfileInfoState extends State<ProfileInfo> {
   } // modalBottomSheet
 
 void alertbox(String title, String message){
+    showDialog(context: context, builder: (BuildContext context)=>
     AlertDialog(
-      title: Text(title),
-      content: Text(message),
+      title: Text(title,style: TextStyle(color: Colors.grey),),
+      content: Text(message,style: TextStyle(color: Colors.redAccent),),
       actions: [
-        OutlinedButton(onPressed: (){}, child: Text("OK"))
+        OutlinedButton(onPressed: (){Navigator.pop(context);}, child: Text("OK"))
       ],
-    );
+    ));
 }
 }
 
