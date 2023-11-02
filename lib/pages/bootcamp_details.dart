@@ -1,83 +1,67 @@
 import 'package:flutter/material.dart';
-class BootcampDetails extends StatelessWidget {
-  final String title;
-  final String img;
-  final String discribtuion;
-  const BootcampDetails({
-    super.key,
-    required this.title,
-    required this.img,
-    required this.discribtuion
-  });
+import 'package:kodeeo_app/pages/bootcamp.dart';
+import 'package:kodeeo_app/widgets/about_our_course.dart';
+
+class BootcampDetails extends StatefulWidget {
+  const BootcampDetails({super.key});
+
+  @override
+  State<BootcampDetails> createState() => _BootcampDetailsState();
+}
+
+class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderStateMixin {
+  late TabController tabController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      tabController= TabController(length: 3, vsync: this);
+      tabController.animateTo(0);
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          Navigator.pop(context);
-        }, icon: const Icon(Icons.arrow_back_ios),
-
-        ),
-
-        title: const Text("Details"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+    return  Scaffold(
+      body:
+      Container(
         child: Column(
-            children:[
-              Container(
-                // margin:EdgeInsets.only(top: _height*0.02,left: 10),
-                padding: const EdgeInsets.all(10),
-                width: width,
-                child: const Text("About the course",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
+          children: [
+            Container(
+              child: TabBar(
+                controller: tabController,
+                  tabs: [
+                    Tab(
+                      text: "About Course",
 
-                        height: 1.3,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                    )),
+                    ),
+                    Tab(
+                      text: "Course Outline",
 
+                    ),
+                    Tab(
+                      text: "Course Trainer",
+
+                    ),
+
+                  ]
               ),
-              Container(
-                margin:EdgeInsets.only(top: height*0.02),
-                width: width*0.88,
-                child: Image.network(
-                    width: width*0.80,
-                    height:height*0.40,
-                    img),
-              ),
-              Container(
-                  margin: const EdgeInsets.only(top: 20,left: 10),
-                  child:Text( title,style: const TextStyle(
-                      height: 1.3,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold
-                  ))
-              )
-              ,
-              Container(
-                  margin: EdgeInsets.only(top: height*0.02),
-                  width: width*0.92,
-                  child:Text( discribtuion,textAlign: TextAlign.justify,
-                      style: const TextStyle(
-                        height: 1.3,
-                        fontSize: 18,
-                      )
-                  )
-              ),
-            ]
+            ),
+            // Container(
+            //   child: TabBarView(
+            //     controller: tabController,
+            //     children: [
+            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
+            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
+            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
+            //
+            //     ],
+            //   ),
+            //
+            // ),
+          ],
         ),
-      )
-      ,
+      ),
     );
   }
 }

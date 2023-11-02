@@ -131,7 +131,11 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>  AboutCourse(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
+                                      builder: (context) =>BootcampDetails() ));
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>  AboutCourse(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
                             } catch (e) {
                               print(e);
                             }
