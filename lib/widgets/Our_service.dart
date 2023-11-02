@@ -60,7 +60,7 @@ class OurService  {
                 SizedBox(height: 5,),
                 Text(itemList[index].title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),),
                 SizedBox(height: 5,),
-                Text(itemList[index].descption,style: TextStyle(fontSize: 12),textAlign: TextAlign.justify,),
+                Expanded(child: Text(itemList[index].descption,style: TextStyle(fontSize: 12),textAlign: TextAlign.justify,)),
 
               ]
               ),
