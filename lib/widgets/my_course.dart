@@ -147,7 +147,7 @@ class _MyCourseState extends State<MyCourse> {
                           icon: Icon(Icons.done_outline,color: claimCertificate?Colors.indigo:Colors.transparent,),
                             onPressed: () {
                             setState(() {
-                              claimCertificate = !claimCertificate;
+                              claimCertificate = true;
                             });
                              alertBox("7000");
                             }, label: Text("Claim Certificate")),
