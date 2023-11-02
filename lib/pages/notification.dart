@@ -39,29 +39,7 @@ class _State extends State<NotificationPage>{
                   onTap: (){
                     setState(() {
                       items[index].flag =!items[index].flag;
-                      // showDialog<void>(
-                      //   context: context,
-                      //   barrierDismissible: true,
-                      //   // false = user must tap button, true = tap outside dialog
-                      //   builder: (BuildContext dialogContext) {
-                      //     return AlertDialog(
-                      //      clipBehavior: Clip.antiAlias,
-                      //       elevation: 1,
-                      //       backgroundColor: Colors.white,
-                      //       title: Text(items[index].title),
-                      //       content: Text(items[index].description),
-                      //       actions: <Widget>[
-                      //         TextButton(
-                      //           child: Text('Close'),
-                      //           onPressed: () {
-                      //             Navigator.of(dialogContext)
-                      //                 .pop(); // Dismiss alert dialog
-                      //           },
-                      //         ),
-                      //       ],
-                      //     );
-                      //   },
-                      // );
+
                     });
                   },
                 ),

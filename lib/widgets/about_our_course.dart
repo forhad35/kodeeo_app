@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-class BootcampDetails extends StatelessWidget {
+class AboutCourse extends StatelessWidget {
   final String title;
   final String img;
   final String discribtuion;
-  const BootcampDetails({
+  const AboutCourse({
     super.key,
     required this.title,
     required this.img,

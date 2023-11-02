@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/widgets/about_our_course.dart';
 
 import '../widgets/drawer.dart';
 import 'bootcamp_details.dart';
@@ -130,7 +131,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
+                                      builder: (context) =>  AboutCourse(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
                             } catch (e) {
                               print(e);
                             }

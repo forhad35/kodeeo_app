@@ -11,6 +11,7 @@ import 'package:kodeeo_app/core/colors.dart';
 import 'package:kodeeo_app/pages/profile.dart';
 
 import 'package:kodeeo_app/widgets/Our_service.dart';
+import 'package:kodeeo_app/widgets/about_our_course.dart';
 import 'package:kodeeo_app/widgets/drawer.dart';
 import 'package:kodeeo_app/widgets/our_client.dart';
 import '../route/route.dart';
@@ -108,7 +109,7 @@ class _HomeState extends State<Home> {
                       itemCount: myData.length,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
-                          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
+                          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  AboutCourse(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
                           child: SizedBox(
                             width: _width * 0.70,
                             child: Padding(
