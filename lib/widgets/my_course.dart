@@ -20,6 +20,7 @@ class _MyCourseState extends State<MyCourse> {
     "Certificate Status"
   ];
   var myData = BootCamp.myData;
+  bool claimCertificate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -142,29 +143,14 @@ class _MyCourseState extends State<MyCourse> {
                           )),
                       Container(
                         margin: EdgeInsets.only(bottom: 10,top: 15),
-                        child: OutlinedButton(
+                        child: OutlinedButton.icon(
+                          icon: Icon(Icons.done_outline,color: claimCertificate?Colors.indigo:Colors.transparent,),
                             onPressed: () {
-                              showDialog(context: context,
-                                  builder: (BuildContext context)=>AlertDialog(
-                                    title: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Claim Certificate",),
-                                        Text("Due : 70000 TK"),
-                                      ],
-                                    ),
-                                    titleTextStyle: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.black
-                                    ),
-                                    content: Text("You need to clear your due for claiming your certificate"),
-                                    contentPadding: EdgeInsets.all(20),
-                                    contentTextStyle: TextStyle(
-                                        fontSize: 12,
-
-                                        color: Colors.red),
-                                  ));
-                            }, child: Text("Claim Certificate")),
+                            setState(() {
+                              claimCertificate = !claimCertificate;
+                            });
+                             alertBox("7000");
+                            }, label: Text("Claim Certificate")),
                       )
                     ],
                   ),
@@ -173,5 +159,27 @@ class _MyCourseState extends State<MyCourse> {
             ),
           );
         });
+  }
+  void alertBox(String DuePrice){
+    showDialog(context: context,
+        builder: (BuildContext context)=>AlertDialog(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Claim Certificate",),
+              Text("Due : 70000 TK"),
+            ],
+          ),
+          titleTextStyle: TextStyle(
+              fontSize: 14,
+              color: Colors.black
+          ),
+          content: Text("You need to clear your due for claiming your certificate"),
+          contentPadding: EdgeInsets.all(20),
+          contentTextStyle: TextStyle(
+              fontSize: 12,
+
+              color: Colors.red),
+        ));
   }
 }
