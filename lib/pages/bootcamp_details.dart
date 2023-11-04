@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
+import 'package:kodeeo_app/widgets/course_outline.dart';
 
 class BootcampDetails extends StatefulWidget {
-  const BootcampDetails({super.key});
+  final String title;
+  final String img;
+  final String discribtuion;
+  const BootcampDetails({
+    super.key,
+    required this.title,
+    required this.img,
+    required this.discribtuion
+  });
 
   @override
   State<BootcampDetails> createState() => _BootcampDetailsState();
@@ -23,6 +33,9 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(
+        title: Text("Details"),
+      ),
       body:
       Container(
         child: Column(
@@ -47,18 +60,18 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
                   ]
               ),
             ),
-            // Container(
-            //   child: TabBarView(
-            //     controller: tabController,
-            //     children: [
-            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
-            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
-            //       AboutCourse(title: "title", img: "img", discribtuion: "discribtuion"),
-            //
-            //     ],
-            //   ),
-            //
-            // ),
+            Container(
+              height: displayHeight(context)-200,
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion),
+                  CourseOutline(),
+                  AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion),
+                ],
+              ),
+
+            ),
           ],
         ),
       ),

@@ -19,18 +19,7 @@ class AboutCourse extends StatelessWidget {
         .of(context)
         .size
         .width;
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          Navigator.pop(context);
-        }, icon: const Icon(Icons.arrow_back_ios),
-
-        ),
-
-        title: const Text("Details"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
         child: Column(
             children:[
               Container(
@@ -77,8 +66,7 @@ class AboutCourse extends StatelessWidget {
               ),
             ]
         ),
-      )
-      ,
+
     );
   }
 }
