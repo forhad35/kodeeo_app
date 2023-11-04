@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
 
 import '../widgets/drawer.dart';
@@ -43,16 +44,12 @@ You'll learn the most advanced cutting edge web technologies to built your websi
           }
           return Container(
             padding: EdgeInsets.only(top:10,bottom: 10,right: 15,left: 15),
-            height: 530,
             width: MediaQuery.of(context).size.width,
             child: Card(
               surfaceTintColor: Colors.white,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               elevation: 2,
               shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  color: Theme.of(context).colorScheme.outline,
-                ),
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               child: Column(
@@ -92,6 +89,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                                 children: [
                                   WidgetSpan(
                                     child: Icon(Icons.offline_pin_outlined, size: 16),
+
                                   ),
                                   TextSpan(
                                     text: "${myData[index]["stutas"]} ",
@@ -109,16 +107,41 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  "${myData[index]["CoursePrice"]}",
-                                  style: TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null),textAlign: TextAlign.center,
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: " ৳",
+                                        style: TextStyle(
+                                          fontSize: 22,color: Colors.black
+                                        )
+                                      ),
+                                      TextSpan(
+                                        text: "${myData[index]["CoursePrice"]}",
+                                        style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null),
+                                      )
+                                    ]
+                                  ),
                                 ),
-                                Text(
-                                  discountPrice.toString(),
-                                  style: TextStyle(
+                                RichText(
+                                  text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                            text: " ৳",
+                                            style: TextStyle(
+                                                fontSize: 22,color: Colors.black
+                                            )
+                                        ),
+                                        TextSpan(
+                                          text:  discountPrice.toString(),
+                                          style: TextStyle(
 
-                                      fontSize: 16, fontWeight: FontWeight.bold,height: 1),textAlign: TextAlign.center,
+                                              fontSize: 14, fontWeight: FontWeight.bold,height: 1),
+                                        )
+                                      ]
+                                  ),
                                 ),
                               ],
                             )),
@@ -142,7 +165,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                               height: 45,
                               child: Text(
                                 "Details",
-                                style: TextStyle(fontSize: 18, height: 2),
+                                style: TextStyle(fontSize: 18, height: 2.4),
                                 textAlign: TextAlign.center,
                               )
                           ),

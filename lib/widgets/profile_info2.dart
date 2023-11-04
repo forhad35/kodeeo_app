@@ -211,11 +211,16 @@ class _ProfileInfoState extends State<ProfileInfo> {
                         child: Text("Old Password",style: TextStyle(fontSize: 14),),
                       ),
                       TextFormField(
+                        validator: (value){
+                          if(value != userpass){
+                            return " wrong password";
+                          }
+                        },
                         controller: oldPass,
+                        // autovalidateMode: AutovalidateMode.onUserInteraction,
                         style: TextStyle(fontSize: 20,height: .6),
                         decoration: InputDecoration(
                           errorText: errorText ? "Wrong Old password! ": null,
-
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
@@ -229,6 +234,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                               borderSide:
                               BorderSide(width: 1, color: activecolor)),
                           errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                              BorderSide(width: 1, color: errorcolor)),
+                          focusedErrorBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
                               BorderSide(width: 1, color: errorcolor)),
@@ -275,6 +284,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       TextFormField(
                         controller: confirmPass,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         style: TextStyle(fontSize: 20,height: .6),
                         decoration: InputDecoration(
                           errorText: errorText1 ? "Password Not Matching!": null,
