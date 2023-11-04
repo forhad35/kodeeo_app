@@ -24,6 +24,19 @@ class _ProfileInfoState extends State<ProfileInfo> {
   var phone=TextEditingController(text: "017*******");
   bool editFromText=false;
 
+  Color activecolor=Colors.indigo;
+  Color nonactivecolor=Colors.black54;
+  Color focuscolor=Colors.lightGreen;
+  Color errorcolor = Colors.redAccent;
+  var swaingcolor; /// active notactive color sowing variable
+
+  bool errorText=false;
+  bool errorText1=false;
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,6 +51,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   onPressed: () {
                     setState(() {
                       editFromText=true;
+                      swaingcolor=nonactivecolor;
+                      nonactivecolor=activecolor;
                     });
                   },
                   icon: Icon(
@@ -55,25 +70,25 @@ class _ProfileInfoState extends State<ProfileInfo> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Name",style: TextStyle(fontSize: 16),),
+                        child: Text("Name",style: TextStyle(fontSize: 16,color: nonactivecolor),),
                       ),
                       TextFormField(
                         enabled: editFromText,
                         controller: name,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1),
+                        style: TextStyle(fontSize:18,color: nonactivecolor,height: 0.8),
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
+                              BorderSide(width: 1, color: focuscolor)),
                           disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
                         ),
                       ),
                       SizedBox(
@@ -81,26 +96,26 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Email",style: TextStyle(fontSize: 16),),
+                        child: Text("Email",style: TextStyle(fontSize: 16,color: nonactivecolor),),
                       ),
                       TextFormField(
                         enabled: editFromText,
                         controller: email,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
+                        style: TextStyle(fontSize:18,color: nonactivecolor,height: .8 ),
                         decoration: InputDecoration(
 
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
+                              BorderSide(width: 1, color: focuscolor)),
                           disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
 
                         ),
                       ),
@@ -109,26 +124,26 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
-                        child: Text("Phone",style: TextStyle(fontSize: 16),),
+                        child: Text("Phone",style: TextStyle(fontSize: 16,color: nonactivecolor),),
                       ),
                       TextFormField(
                         enabled: editFromText,
                         controller: phone,
-                        style: TextStyle(fontSize:18,color: Colors.indigo,height: 1 ),
+                        style: TextStyle(fontSize:18,color: nonactivecolor,height: .8 ),
                         decoration: InputDecoration(
 
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
+                              BorderSide(width: 1, color: focuscolor)),
                           disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: nonactivecolor)),
 
                         ),
                       ),
@@ -153,6 +168,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   child: ElevatedButton(onPressed: () {
                     setState(() {
                       editFromText=false;
+                      nonactivecolor=swaingcolor;
+                      //nonactivecolor=swap;
                     });
                   },
                     child: Text("Update Info"),style: ButtonStyle(enableFeedback: editFromText),),
@@ -169,6 +186,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
     );
   }
 
+  // bottom modal sheet function
   void modalBottomSheet(BuildContext context){
     var oldPass=TextEditingController();
     var newPass=TextEditingController();
@@ -194,21 +212,27 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       TextFormField(
                         controller: oldPass,
-                        style: TextStyle(fontSize: 20,height: .8),
+                        style: TextStyle(fontSize: 20,height: .6),
                         decoration: InputDecoration(
+                          errorText: errorText ? "Wrong Old password! ": null,
 
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: focuscolor)),
+                          // disabledBorder: OutlineInputBorder(
+                          //     borderRadius: BorderRadius.all(Radius.circular(10)),
+                          //     borderSide:
+                          //     BorderSide(width: 1, color: Colors.indigo)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: activecolor)),
+                          errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                              BorderSide(width: 1, color: errorcolor)),
+
                         ),
                       ),
                       SizedBox(
@@ -220,20 +244,26 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       TextFormField(
                         controller: newPass,
-                        style: TextStyle(fontSize: 20,height: .8),
+                        style: TextStyle(fontSize: 20,height: .6),
                         decoration: InputDecoration(
+                          errorText: errorText1 ? "Password Not Matching!": null,
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: focuscolor)),
+                          // disabledBorder: OutlineInputBorder(
+                          //     borderRadius: BorderRadius.all(Radius.circular(10)),
+                          //     borderSide:
+                          //     BorderSide(width: 1, color: Colors.indigo)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: activecolor)),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            borderSide:
+                            BorderSide(width: 1, color: errorcolor)),
+
                         ),
                       ),
                       SizedBox(
@@ -245,20 +275,25 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       TextFormField(
                         controller: confirmPass,
-                        style: TextStyle(fontSize: 20,height: .8),
+                        style: TextStyle(fontSize: 20,height: .6),
                         decoration: InputDecoration(
+                          errorText: errorText1 ? "Password Not Matching!": null,
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.orange)),
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: focuscolor)),
+                          // disabledBorder: OutlineInputBorder(
+                          //     borderRadius: BorderRadius.all(Radius.circular(10)),
+                          //     borderSide:
+                          //     BorderSide(width: 1, color: Colors.indigo)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                               borderSide:
-                              BorderSide(width: 1, color: Colors.indigo)),
+                              BorderSide(width: 1, color: activecolor)),
+                          errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              borderSide:
+                              BorderSide(width: 1, color: errorcolor)),
                         ),
                       ),
 
@@ -274,15 +309,19 @@ class _ProfileInfoState extends State<ProfileInfo> {
                           setState(() {
 
                           if(oldPass.text!=userpass.toString()){
-                            alertbox("Kodeeo LTD", "Wrong old Password");
+                           // alertbox("Kodeeo LTD", "Wrong old Password");
                             print("wpp");
+                            errorText=true;
 
                           }else if(newPass.text.isEmpty && confirmPass.text.isEmpty){
-                            alertbox("Kodeeo LTD", "Password is Empty");
+                          //  alertbox("Kodeeo LTD", "Password is Empty");
                             print("Empty pass");
+                            // errorText=true;
+                            errorText1=true;
                           }else if(newPass.text!=confirmPass.text){
-                            alertbox("Kodeeo LTD", "Password not match");
+                           // alertbox("Kodeeo LTD", "Password not match");
                             print("not match");
+                            errorText1=true;
                           }else{
                             alertbox("Kodeeo LTD", "Change Successfully");
                             print("done");
