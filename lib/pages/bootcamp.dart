@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
-
-
-
 import '../widgets/drawer.dart';
 import 'bootcamp_details.dart';
 class BootCamp extends StatelessWidget {
@@ -64,30 +61,27 @@ class BootCamp extends StatelessWidget {
                         Container(
                             margin: EdgeInsets.only(top: 10),
                             width: 300,
-                            child: RichText(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                              RichText(
                               softWrap: true,
                               textAlign: TextAlign.center,
                               text: TextSpan(
                                 children: [
                                   WidgetSpan(
-                                    child: Icon(Icons.offline_pin_outlined, size: 16),
-                                        style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
-                                      ),
-                                      TextSpan(
-                                        text: " ${myData[index]["stutas"]} ",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16, height: 1),
-                                      ),
-                                    ],
+                                      child: Icon(Icons.online_prediction_outlined, size: 16,color: Colors.red,),
+                                      style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
                                   ),
-                                )),
-                        Container(
-                            margin: EdgeInsets.only(top: 10),
-                            width: 300,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                                  TextSpan(
+                                    text: " ${myData[index]["stutas"]} ",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16, height: 1),
+                                  ),
+                                ],
+                              ),
+                            ),
                                 RichText(
                                   text: TextSpan(
                                       children: [
@@ -101,7 +95,7 @@ class BootCamp extends StatelessWidget {
                                           text: "${myData[index]["CoursePrice"]}",
                                           style: TextStyle(
                                               color: myData[index]["discoundPrice"]!=null?Colors.grey:Colors.black,
-                                              fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null),
+                                              fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null,decorationThickness: 3,decorationColor: Colors.black),
                                         )
                                       ]
                                   ),
@@ -135,7 +129,7 @@ class BootCamp extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
+                                      builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"], courseId: myData[index]["id"],)));
                             } catch (e) {
                               print(e);
                             }
