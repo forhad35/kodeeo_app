@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
 import 'package:kodeeo_app/pages/home.dart';
@@ -11,7 +12,7 @@ class PhotoGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text("Photo Gallery"),),
       body: SingleChildScrollView(
         child: StaggeredGrid.count(
           crossAxisCount: 4,
@@ -63,7 +64,17 @@ class PhotoGallery extends StatelessWidget {
 Widget loadimg(String PhotosLink){
   return  Padding(
     padding: const EdgeInsets.all(5.0),
-    child: Image.network(PhotosLink,fit: BoxFit.cover,),
+    child: Container(
+      clipBehavior: Clip.hardEdge,
+      decoration:  BoxDecoration(
+        border: Border.all(
+          color: Colors.grey,
+          strokeAlign: BorderSide.strokeAlignOutside,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+        child: Image.network(PhotosLink,fit: BoxFit.cover,isAntiAlias: true,)),
   );
 }
 //testing zoomable image

@@ -20,123 +20,66 @@ class Drawers extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 50,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 60,
-                width: 60,
+          ListTile(
+            leading: Container(
+                height: 40,
+                width: 40,
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(60)),
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 1
-                  )
+                    borderRadius: BorderRadius.all(Radius.circular(60)),
+                    border: Border.all(
+                        color: Colors.black,
+                        width: 1
+                    )
                 ),
-                  child: Image.network(imgLink,height: 50,width: 50,)),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("MD : Hasan Mirza",style: TextStyle(fontSize: 14),),
-                  Text("exmaple@gmail.com",style: TextStyle(fontSize: 12))
-
-                ],
-              )
-            ],
+                child: Image.network(imgLink,height: 40,width: 40,)),
+            title:     Text("MD : Hasan Mirza",style: TextStyle(fontSize: 14),),
+            subtitle:  Text("exmaple@gmail.com",style: TextStyle(fontSize: 12)),
           ),
           Divider(),
           SizedBox(height: 20,),
-          TextButton(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.black
-            ),
-            onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactPage())),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Icon( // <-- Icon
+          InkWell(
+            onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactPage())),
+            child: ListTile(
+              horizontalTitleGap: 30,
+              leading: Icon( // <-- Icon
                   Icons.call,
-                  size: 22.0,
+                  size: 24.0,color: Colors.grey,
                 ), // <-- Text
-                SizedBox(
-                  width: 50,
-                ),
-                Text('Contact',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
-                SizedBox(width: 100,)
-              ],
+            title:  Text('Contact',style: TextStyle(fontSize: 14,),),
             ),
           ),
-          TextButton(
-            style: TextButton.styleFrom(
-                foregroundColor: Colors.black
-            ),
-            onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutUs())),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Icon( // <-- Icon
-                  Icons.account_box_outlined,
-                  size: 22.0,
-                ), // <-- Text
-                SizedBox(
-                  width: 50,
-                ),
-                Text('About us',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
-                SizedBox(width: 100,)
-              ],
+          InkWell(
+            onTap:()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutUs())),
+            child: ListTile(
+              horizontalTitleGap: 30,
+              leading: Icon( // <-- Icon
+                Icons.account_box_outlined,
+                size: 24.0,color: Colors.grey,
+              ), // <-- Text
+              title:  Text('About us',style: TextStyle(fontSize: 14,),),
             ),
           ),
-          TextButton(
-            style: TextButton.styleFrom(
-                foregroundColor: Colors.black
-            ),
-            onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>PhotoGallery())),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Icon( // <-- Icon
-                  Icons.photo,
-                  size: 22.0,
-                ), // <-- Text
-                SizedBox(
-                  width: 50,
-                ),
-                Text('Photo gallery',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
-                SizedBox(width: 55,)
-              ],
+          InkWell(
+            onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>PhotoGallery())),
+            child: ListTile(
+              horizontalTitleGap: 30,
+              leading: Icon( // <-- Icon
+                Icons.photo,
+                size: 24.0,color: Colors.grey,
+              ), // <-- Text
+              title:  Text('Photo gallery',style: TextStyle(fontSize: 14,),),
             ),
           ),
-          TextButton(
-            style: TextButton.styleFrom(
-                foregroundColor: Colors.black
-            ),
-            onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Login())),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 20,
-                ),
-                Icon( // <-- Icon
-                  Icons.login,
-                  size: 22.0,
-                ), // <-- Text
-                SizedBox(
-                  width: 50,
-                ),
-                Text('Login',style: TextStyle(fontSize: 18,fontWeight: FontWeight.normal),),
-                SizedBox(width: 100,)
-              ],
+          InkWell(
+            onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Login())),
+            child: ListTile(
+              horizontalTitleGap: 30,
+              leading: Icon( // <-- Icon
+                Icons.login,
+                size: 24.0,color: Colors.grey,
+              ), // <-- Text
+              title:  Text('Login',style: TextStyle(fontSize: 14,),),
             ),
           ),
           Expanded(
