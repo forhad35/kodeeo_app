@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                           child: SizedBox(
                             width: _width * 0.70,
                             child: InkWell(
-                              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
+                              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
                               child: Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
                                 elevation: 3,
