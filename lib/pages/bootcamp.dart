@@ -70,8 +70,8 @@ class BootCamp extends StatelessWidget {
                               text: TextSpan(
                                 children: [
                                   WidgetSpan(
-                                      child: Icon(Icons.online_prediction_outlined, size: 16,color: Colors.red,),
-                                      style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
+                                      child: Icon(Icons.online_prediction_outlined,color: Colors.red,size: 25,),
+                                      style: TextStyle(fontSize: 24,decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 1.5,)
                                   ),
                                   TextSpan(
                                     text: " ${myData[index]["stutas"]} ",
@@ -88,7 +88,7 @@ class BootCamp extends StatelessWidget {
                                         TextSpan(
                                             text: " ৳ ",
                                             style: TextStyle(
-                                                fontSize: 22,color: Colors.black
+                                                fontSize: 20,color: Colors.black
                                             )
                                         ),
                                         TextSpan(
@@ -106,7 +106,7 @@ class BootCamp extends StatelessWidget {
                                         TextSpan(
                                             text: " ৳",
                                             style: TextStyle(
-                                                fontSize: 22,color: Colors.black
+                                                fontSize: 20,color: Colors.black
                                             )
                                         ),
                                         TextSpan(

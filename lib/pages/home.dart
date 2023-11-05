@@ -174,8 +174,8 @@ class _HomeState extends State<Home> {
                                                       child: Icon(
                                                           Icons
                                                               .online_prediction_outlined,color: Colors.redAccent,
-                                                          size: 16),
-                                                        style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
+                                                          size: 20),
+                                                        style: TextStyle(fontSize:16,decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 1.5,)
                                                     ),
                                                     TextSpan(
                                                       text:
@@ -183,7 +183,7 @@ class _HomeState extends State<Home> {
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 12,
-                                                          height: 1),
+                                                          height: 0.8),
                                                     ),
                                                   ],
                                                 ),
