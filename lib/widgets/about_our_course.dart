@@ -22,38 +22,23 @@ class AboutCourse extends StatelessWidget {
     return SingleChildScrollView(
         child: Column(
             children:[
-              Container(
-                // margin:EdgeInsets.only(top: _height*0.02,left: 10),
-                padding: const EdgeInsets.all(10),
-                width: width,
-                child: const Text("About the course",
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-
-                        height: 1.3,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                    )),
-
-              ),
+        Container(
+        margin: const EdgeInsets.only(top: 20,left: 10),
+        child:Text( title,style: const TextStyle(
+            height: 1.3,
+            fontSize: 18,
+            fontWeight: FontWeight.bold
+        ))
+    ),
               Container(
                 margin:EdgeInsets.only(top: height*0.02),
                 width: width*0.90,
                 child: Image.network(
-                    fit: BoxFit.fill,
-                    width: width*0.90,
-                    height:height*0.20,
+                    fit: BoxFit.fitWidth,
+                    height:height*0.23,
                     img),
               ),
-              Container(
-                  margin: const EdgeInsets.only(top: 20,left: 10),
-                  child:Text( title,style: const TextStyle(
-                      height: 1.3,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold
-                  ))
-              )
-              ,
+
               Container(
                   margin: EdgeInsets.only(top: height*0.02),
                   width: width*0.92,
