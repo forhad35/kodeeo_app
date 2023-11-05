@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
-
 import '../widgets/drawer.dart';
 import 'bootcamp_details.dart';
 class BootCamp extends StatelessWidget {
@@ -22,12 +21,6 @@ class BootCamp extends StatelessWidget {
         scrollDirection: Axis.vertical,
         itemCount: myData.length,
         itemBuilder: (BuildContext context, int index) {
-          String discountPrice;
-          if(myData[index]["discoundPrice"] != null){
-             discountPrice =  myData[index]["discoundPrice"];
-          }else{
-            discountPrice = " ";
-          }
           return Container(
             padding: EdgeInsets.only(top:10,bottom: 10,right: 15,left: 15),
             width: MediaQuery.of(context).size.width,
@@ -68,52 +61,48 @@ class BootCamp extends StatelessWidget {
                         Container(
                             margin: EdgeInsets.only(top: 10),
                             width: 300,
-                            child: RichText(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                              RichText(
                               softWrap: true,
                               textAlign: TextAlign.center,
                               text: TextSpan(
                                 children: [
                                   WidgetSpan(
-                                    child: Icon(Icons.offline_pin_outlined, size: 16),
-
+                                      child: Icon(Icons.online_prediction_outlined, size: 16,color: Colors.red,),
+                                      style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
                                   ),
                                   TextSpan(
-                                    text: "${myData[index]["stutas"]} ",
+                                    text: " ${myData[index]["stutas"]} ",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16, height: 1),
                                   ),
                                 ],
                               ),
-                            )
-                        ),
-                        Container(
-                            margin: EdgeInsets.only(top: 10),
-                            width: 300,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                            ),
                                 RichText(
                                   text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: " ৳",
-                                        style: TextStyle(
-                                          fontSize: 22,color: Colors.black
+                                      children: [
+                                        TextSpan(
+                                            text: " ৳ ",
+                                            style: TextStyle(
+                                                fontSize: 22,color: Colors.black
+                                            )
+                                        ),
+                                        TextSpan(
+                                          text: "${myData[index]["CoursePrice"]}",
+                                          style: TextStyle(
+                                              color: myData[index]["discoundPrice"]!=null?Colors.grey:Colors.black,
+                                              fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null,decorationThickness: 3,decorationColor: Colors.black),
                                         )
-                                      ),
-                                      TextSpan(
-                                        text: "${myData[index]["CoursePrice"]}",
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null),
-                                      )
-                                    ]
+                                      ]
                                   ),
                                 ),
                                 RichText(
                                   text: TextSpan(
-                                      children: [
+                                      children:myData[index]["discoundPrice"]!=null?[
                                         TextSpan(
                                             text: " ৳",
                                             style: TextStyle(
@@ -121,12 +110,12 @@ class BootCamp extends StatelessWidget {
                                             )
                                         ),
                                         TextSpan(
-                                          text:  discountPrice.toString(),
+                                          text:  " ${myData[index]["discoundPrice"]}",
                                           style: TextStyle(
-
+                                              color:Colors.black,
                                               fontSize: 14, fontWeight: FontWeight.bold,height: 1),
                                         )
-                                      ]
+                                      ]:null
                                   ),
                                 ),
                               ],
@@ -137,11 +126,10 @@ class BootCamp extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             try {
-
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],)));
+                                      builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"], courseId: myData[index]["id"],)));
                             } catch (e) {
                               print(e);
                             }
