@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/core/colors.dart';
 import 'dart:math' as math;
@@ -164,6 +166,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
+
+                // tab bar startin here
                 Container(
                   height: 62,
                   child: TabBar(
@@ -195,8 +199,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 Container(
                   margin: EdgeInsets.only(top: 10),
                   width:displayWidth(context),
-                  height: 440,
-
+                  height: 340,
                   child: TabBarView(controller: _tabController, children: [
                     MyCourse(),
                     ProfileInfo(),

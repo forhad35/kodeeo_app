@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
+import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/notification.dart';
@@ -11,6 +13,7 @@ import 'package:kodeeo_app/core/colors.dart';
 import 'package:kodeeo_app/pages/profile.dart';
 
 import 'package:kodeeo_app/widgets/Our_service.dart';
+import 'package:kodeeo_app/widgets/about_our_course.dart';
 import 'package:kodeeo_app/widgets/drawer.dart';
 import 'package:kodeeo_app/widgets/our_client.dart';
 import '../route/route.dart';
@@ -49,6 +52,8 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
+                height: displayHeight(context)*0.20,
+                  width: displayWidth(context),
                   child: CarouselSlider(
                     options: CarouselOptions(
                       autoPlay: true,
@@ -63,7 +68,7 @@ class _HomeState extends State<Home> {
                       margin: EdgeInsets.only(left: 10,right: 10),
                       child: Center(
                           child:
-                          Image.network(item, fit: BoxFit.cover, width: double.infinity,height: 300,)),
+                          Image.network(item, fit: BoxFit.cover, width: double.infinity,)),
                     ))
                         .toList(),
                   )),
@@ -78,7 +83,7 @@ class _HomeState extends State<Home> {
                       onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>OurService.ourService_singlePage())),
                       child: Text(
                         "Our Services",
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 16),
                       ),
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
@@ -89,7 +94,7 @@ class _HomeState extends State<Home> {
                       onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>BootCamp())),
                       child: Text(
                         "All Bootcamp",
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 16),
                       ),
                       style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: Colors.indigo),
@@ -101,25 +106,22 @@ class _HomeState extends State<Home> {
               ),
               SizedBox(height: 20,),
               SizedBox(
-                  height: 350,
-                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 300,
+                  // width: MediaQuery.of(context).size.width * 0.9,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: myData.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
                           child: SizedBox(
                             width: _width * 0.70,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: InkWell(
+                              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
                               child: Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: Theme.of(context).colorScheme.outline,
-                                  ),
                                   borderRadius:
                                       const BorderRadius.all(Radius.circular(20)),
                                 ),
@@ -130,7 +132,7 @@ class _HomeState extends State<Home> {
                                         fit: BoxFit.fill,
                                         repeat: ImageRepeat.noRepeat,
                                         width: _width * 0.90,
-                                        height: 180,
+                                        height: 140,
                                         "${myData[index]["image"]}"),
                                     Container(
                                       margin: EdgeInsets.all(10),
@@ -141,7 +143,7 @@ class _HomeState extends State<Home> {
                                           Text(
                                             "${myData[index]["name"]}",
                                             style: TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 14,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Container(
@@ -187,14 +189,14 @@ class _HomeState extends State<Home> {
                                                     "${myData[index]["CoursePrice"]}",
                                                     style: TextStyle(
 
-                                                        fontSize: 14, fontWeight: FontWeight.bold,height: 1,decoration: TextDecoration.lineThrough),textAlign: TextAlign.center,
+                                                        fontSize: 12, fontWeight: FontWeight.bold,height: 1,decoration: TextDecoration.lineThrough),textAlign: TextAlign.center,
                                                   ),
                                                   Text(
                                                     "${myData[index]["discoundPrice"]}",
 
                                                     style: TextStyle(
 
-                                                        fontSize: 14, fontWeight: FontWeight.bold,height: 1),textAlign: TextAlign.center,
+                                                        fontSize: 12, fontWeight: FontWeight.bold,height: 1),textAlign: TextAlign.center,
                                                   ),
                                                 ],
                                               )),
@@ -246,7 +248,7 @@ class _HomeState extends State<Home> {
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.golf_course_sharp,
+                  icon: FontAwesomeIcons.list,
                   text: 'Bootcamp',
                 ),
                 GButton(
