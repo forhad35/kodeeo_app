@@ -13,7 +13,6 @@ class _CourseOutlineState extends State<CourseOutline> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar:  AppBar( title:  Text("Course Outline"),),
       body: Container(
         child:
         ListView.builder(

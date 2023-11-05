@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
 import 'package:kodeeo_app/widgets/course_outline.dart';
+import 'package:kodeeo_app/widgets/trainner_card.dart';
 
 class BootcampDetails extends StatefulWidget {
+  final int courseId;
   final String title;
   final String img;
   final String discribtuion;
   const BootcampDetails({
     super.key,
+    required this.courseId,
     required this.title,
     required this.img,
     required this.discribtuion
@@ -26,7 +30,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
     // TODO: implement initState
     super.initState();
     setState(() {
-      tabController= TabController(length: 3, vsync: this);
+      tabController= TabController(length: 2, vsync: this);
       tabController.animateTo(0);
     });
   }
@@ -49,10 +53,6 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
 
                     ),
                     Tab(
-                      text: "Course Outline",
-
-                    ),
-                    Tab(
                       text: "Course Trainer",
 
                     ),
@@ -61,13 +61,12 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
               ),
             ),
             Container(
-              height: displayHeight(context)-200,
+              height: displayHeight(context)-150,
               child: TabBarView(
                 controller: tabController,
                 children: [
                   AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion),
-                  CourseOutline(),
-                  AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion),
+                  TrainnerCard(trainnerId: BootcampData.getTrainnerId(widget.courseId)!,),
                 ],
               ),
 

@@ -166,6 +166,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
+
+                // tab bar startin here
                 Container(
                   height: 62,
                   child: TabBar(
