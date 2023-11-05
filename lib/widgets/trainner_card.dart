@@ -120,7 +120,7 @@ class TrainnerCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                             color: Colors.black54,
-                            fontSize: 24,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
@@ -128,7 +128,7 @@ class TrainnerCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                             color: Colors.blueGrey,
-                            fontSize: 18,
+                            fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
@@ -136,7 +136,7 @@ class TrainnerCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                             color: Colors.blueGrey,
-                            fontSize: 20,
+                            fontSize: 14,
                             fontWeight: FontWeight.w600,height: 1.5),
                       ),
                       Text(
@@ -144,7 +144,7 @@ class TrainnerCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                             color: Colors.blueGrey,
-                            fontSize: 20,
+                            fontSize: 14,
                             fontWeight: FontWeight.w600,height: 1.5),
                       ),
                       Text(
@@ -152,7 +152,7 @@ class TrainnerCard extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style:const TextStyle(
                             color: Colors.blueGrey,
-                            fontSize: 20,
+                            fontSize: 14,
                             fontWeight: FontWeight.w600,height: 1.5),
                       ),
                       Container(

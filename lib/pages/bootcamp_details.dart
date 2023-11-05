@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
-import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/widgets/about_our_course.dart';
-import 'package:kodeeo_app/widgets/course_outline.dart';
 import 'package:kodeeo_app/widgets/trainner_card.dart';
 
 class BootcampDetails extends StatefulWidget {
@@ -40,6 +38,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
       appBar: AppBar(
         title: Text("Bootcamp Info"),centerTitle: true,
       ),
+
       body:
       Container(
         child: Column(
@@ -53,7 +52,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
 
                     ),
                     Tab(
-                      text: "Course Trainer",
+                      text: "Course Instructor",
 
                     ),
 
@@ -61,7 +60,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
               ),
             ),
             Container(
-              height: displayHeight(context)-150,
+              height: displayHeight(context)-140,
               child: TabBarView(
                 controller: tabController,
                 children: [
