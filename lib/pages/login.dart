@@ -57,7 +57,10 @@ String? helper ;
               TextFormField(
                 controller: _EmailController,
                 validator: (value){
-                  if(value != email){
+
+                  if(value == ""){
+                    return " Please enter email";
+                  }else if(value != email){
                      return " Email doesn't  match";
                   }
                   return null;
@@ -101,7 +104,9 @@ String? helper ;
               ),
               TextFormField(
                 validator: (value){
-                  if(value != pass){
+                  if(value == ""){
+                    return " Please enter password";
+                  }else if(value != pass){
                     return " Password doesn't  match";
                   }
                 },

@@ -240,8 +240,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                         controller: oldPass,
                         autovalidateMode: AutovalidateMode.disabled,
                         obscureText: true,
-                        style: TextStyle(fontSize: 20,height: .6),
+                        style: TextStyle(fontSize: 14,),
                         decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.all(10),
                           errorText: errorText ? "Wrong Old password! ": null,
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -275,9 +277,11 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       ),
                       TextFormField(
                         controller: newPass,
-                        style: TextStyle(fontSize: 20,height: .6),
+                        style: TextStyle(fontSize: 14,),
                         obscureText: true,
                         decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.all(10),
                           errorText: errorText1 ? "Password Not Matching!": null,
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -314,8 +318,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                         },
                         autovalidateMode: AutovalidateMode.disabled,
                         obscureText: true,
-                        style: TextStyle(fontSize: 20,height: .6),
+                        style: TextStyle(fontSize: 14,),
                         decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.all(10),
                           errorText: errorText1 ? "Password Not Matching!": null,
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(10)),
