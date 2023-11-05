@@ -75,7 +75,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///home/forhad/snap/flutter/common/flutter/packages/flutter",
+      "rootUri": "file:///home/forhad/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -99,13 +99,13 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///home/forhad/snap/flutter/common/flutter/packages/flutter_test",
+      "rootUri": "file:///home/forhad/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///home/forhad/snap/flutter/common/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///home/forhad/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -189,7 +189,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///home/forhad/snap/flutter/common/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///home/forhad/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -320,7 +320,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-11-02T11:12:57.213292Z",
+  "generated": "2023-11-02T10:43:04.854097Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }
