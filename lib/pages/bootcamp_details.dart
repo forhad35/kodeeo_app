@@ -38,7 +38,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Details"),
+        title: Text("Bootcamp Info"),centerTitle: true,
       ),
       body:
       Container(
