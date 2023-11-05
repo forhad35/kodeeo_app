@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
 import 'package:kodeeo_app/helper/display.dart';
@@ -247,7 +248,7 @@ class _HomeState extends State<Home> {
                   text: 'Home',
                 ),
                 GButton(
-                  icon: Icons.cast_for_education_rounded,
+                  icon: FontAwesomeIcons.list,
                   text: 'Bootcamp',
                 ),
                 GButton(
