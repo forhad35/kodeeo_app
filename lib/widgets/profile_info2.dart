@@ -35,9 +35,8 @@ class _ProfileInfoState extends State<ProfileInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Container(
-        height: displayHeight(context)*0.4,
+    return  Container(
+        height: displayHeight(context)*0.53,
         child: Column(
           children: [
             Container(
@@ -56,7 +55,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                     ),
                     label: Text("Edit"))),
             Container(
-              height: 250,
+              height: displayHeight(context)*0.48,
               child: SingleChildScrollView(
                 child: Container(
                   width: displayWidth(context),
@@ -83,8 +82,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                                       TextFormField(
                                         enabled: editFromText,
                                         controller: name,
-                                        style: TextStyle(fontSize:18,color: nonactivecolor,height: 0.8),
+                                        style: TextStyle(fontSize:14,color: nonactivecolor,),
                                         decoration: InputDecoration(
+                                          isDense: true,
+                                          contentPadding: EdgeInsets.all(10),
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               borderSide:
@@ -109,8 +110,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                                       TextFormField(
                                         enabled: editFromText,
                                         controller: email,
-                                        style: TextStyle(fontSize:18,color: nonactivecolor,height: .8 ),
+                                        style: TextStyle(fontSize:14,color: nonactivecolor, ),
                                         decoration: InputDecoration(
+                                          isDense: true,
+                                          contentPadding: EdgeInsets.all(10),
 
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -137,9 +140,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
                                       TextFormField(
                                         enabled: editFromText,
                                         controller: phone,
-                                        style: TextStyle(fontSize:18,color: nonactivecolor,height: .8 ),
+                                        style: TextStyle(fontSize:14,color: nonactivecolor, ),
                                         decoration: InputDecoration(
-
+                                          isDense: true,
+                                          contentPadding: EdgeInsets.all(10),
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius: BorderRadius.all(Radius.circular(10)),
                                               borderSide:

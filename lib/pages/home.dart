@@ -61,8 +61,15 @@ class _HomeState extends State<Home> {
                     ),
                     items: imgList
                         .map((item) => Container(
+                      padding: EdgeInsets.only(bottom: 5),
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,offset: Offset(0, 0),
+                            blurRadius: 5
+                          )
+                        ],
                         borderRadius: BorderRadius.all(Radius.circular(12))
                       ),
                       margin: EdgeInsets.only(left: 10,right: 10),
@@ -129,10 +136,10 @@ class _HomeState extends State<Home> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Image.network(
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.fitWidth,
                                         repeat: ImageRepeat.noRepeat,
                                         width: _width * 0.90,
-                                        height: 140,
+                                        height: 150,
                                         "${myData[index]["image"]}"),
                                     Container(
                                       margin: EdgeInsets.all(10),
@@ -163,14 +170,16 @@ class _HomeState extends State<Home> {
                                                 text: TextSpan(
                                                   children: [
                                                     WidgetSpan(
+
                                                       child: Icon(
                                                           Icons
-                                                              .offline_pin_outlined,
+                                                              .online_prediction_outlined,color: Colors.redAccent,
                                                           size: 16),
+                                                        style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
                                                     ),
                                                     TextSpan(
                                                       text:
-                                                          "${myData[index]["stutas"]} ",
+                                                          "  ${myData[index]["stutas"]} ",
                                                       style: TextStyle(
                                                           color: Colors.black,
                                                           fontSize: 12,
@@ -180,23 +189,47 @@ class _HomeState extends State<Home> {
                                                 ),
                                               )),
                                           Container(
-                                              margin: EdgeInsets.only(top: 10),
+                                              margin: EdgeInsets.only(top: 5),
                                               width: 300,
                                               child: Row(
                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
-                                                  Text(
-                                                    "${myData[index]["CoursePrice"]}",
-                                                    style: TextStyle(
 
-                                                        fontSize: 12, fontWeight: FontWeight.bold,height: 1,decoration: TextDecoration.lineThrough),textAlign: TextAlign.center,
+                                                  RichText(
+                                                    text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                              text: " ৳ ",
+                                                              style: TextStyle(
+                                                                  fontSize: 18,color: Colors.black
+                                                              )
+                                                          ),
+                                                          TextSpan(
+                                                            text: "${myData[index]["CoursePrice"]}",
+                                                            style: TextStyle(
+                                                                color: myData[index]["discoundPrice"]!=null?Colors.grey:Colors.black,
+                                                                fontSize: 12, fontWeight: FontWeight.bold,height: 1,decoration: myData[index]["discoundPrice"]!=null?TextDecoration.lineThrough:null,decorationColor: Colors.black),
+                                                          )
+                                                        ]
+                                                    ),
                                                   ),
-                                                  Text(
-                                                    "${myData[index]["discoundPrice"]}",
-
-                                                    style: TextStyle(
-
-                                                        fontSize: 12, fontWeight: FontWeight.bold,height: 1),textAlign: TextAlign.center,
+                                                  RichText(
+                                                    text: TextSpan(
+                                                        children:myData[index]["discoundPrice"]!=null?[
+                                                          TextSpan(
+                                                              text: " ৳",
+                                                              style: TextStyle(
+                                                                  fontSize: 18,color: Colors.black
+                                                              )
+                                                          ),
+                                                          TextSpan(
+                                                            text:  " ${myData[index]["discoundPrice"]}",
+                                                            style: TextStyle(
+                                                                color:Colors.black,
+                                                                fontSize: 12, fontWeight: FontWeight.bold,height: 1),
+                                                          )
+                                                        ]:null
+                                                    ),
                                                   ),
                                                 ],
                                               )),

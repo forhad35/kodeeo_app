@@ -84,6 +84,7 @@ You'll learn the most advanced cutting edge web technologies to built your websi
                                     children: [
                                       WidgetSpan(
                                         child: Icon(Icons.online_prediction_outlined, size: 18,color: Colors.red,),
+                                        style: TextStyle(decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 3,)
                                       ),
                                       TextSpan(
                                         text: " ${myData[index]["stutas"]} ",

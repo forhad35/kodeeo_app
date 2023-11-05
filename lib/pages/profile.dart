@@ -197,7 +197,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 Container(
                   margin: EdgeInsets.only(top: 10),
                   width:displayWidth(context),
-                  height: 340,
+                  height: displayHeight(context)*0.55,
                   child: TabBarView(controller: _tabController, children: [
                     MyCourse(),
                     ProfileInfo(),
