@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/helper/display.dart';
-import 'package:kodeeo_app/widgets/profile_settings.dart';
 import 'package:kodeeo_app/widgets/radio_button.dart';
 
 class ProfileInfo extends StatefulWidget {
@@ -35,7 +34,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return  SizedBox(
         height: displayHeight(context)*0.53,
         child: Column(
           children: [
@@ -236,6 +235,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                           if(value != userpass){
                             return " Wrong Old Password!";
                           }
+                          return null;
                         },
                         controller: oldPass,
                         autovalidateMode: AutovalidateMode.disabled,
@@ -315,6 +315,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                           if(newPass.text != confirmPass.text){
                             return " Password is Not Match!" + confirmPass.text;
                           }
+                          return null;
                         },
                         autovalidateMode: AutovalidateMode.disabled,
                         obscureText: true,
@@ -404,44 +405,3 @@ class _ProfileInfoState extends State<ProfileInfo> {
 
 }
 
-// class ProfileInfoEditButton extends StatefulWidget {
-//   const ProfileInfoEditButton({super.key});
-//
-//   @override
-//   State<ProfileInfoEditButton> createState() => _ProfileInfoEditButtonState();
-// }
-//
-// class _ProfileInfoEditButtonState extends State<ProfileInfoEditButton> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return
-//       Container(
-//       height: displayHeight(context)*0.4,
-//       child: Column(
-//         children: [
-//           Container(
-//             //width: displayWidth(context),
-//               alignment: Alignment.topRight,
-//               child: TextButton.icon(
-//                   onPressed: () {
-//                     setState(() {
-//                       // editFromText=true;
-//                       // swaingcolor=nonactivecolor;
-//                       // nonactivecolor=activecolor;
-//                     });
-//                   },
-//                   icon: Icon(
-//                     Icons.mode_edit,
-//                     size: 14,
-//                   ),
-//                   label: Text("Edit"))),
-//           Divider(),
-//           Container(
-//             height: 250,
-//             child: ProfileInfo(),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }

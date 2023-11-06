@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
-import 'package:kodeeo_app/widgets/about_our_course.dart';
-import '../widgets/drawer.dart';
+import 'package:kodeeo_app/helper/display.dart';
 import 'bootcamp_details.dart';
 class BootCamp extends StatelessWidget {
-
   static List myData = BootcampData.data;
+
+  const BootCamp({super.key});
   @override
   Widget build(BuildContext context) {
-    var _width= MediaQuery.of(context).size.width;
-    var _height= MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar:AppBar(
-        title: Text("Bootcamp"),
+        title: const Text("Bootcamp"),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -22,14 +19,14 @@ class BootCamp extends StatelessWidget {
         itemCount: myData.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            padding: EdgeInsets.only(top:10,bottom: 10,right: 15,left: 15),
+            padding: const EdgeInsets.only(top:10,bottom: 10,right: 15,left: 15),
             width: MediaQuery.of(context).size.width,
             child: Card(
               surfaceTintColor: Colors.white,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,25 +38,47 @@ class BootCamp extends StatelessWidget {
                       height: 240,
                       "${myData[index]["image"]}" ),
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "${myData[index]["name"]}" ,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: const EdgeInsets.only(top: 10),
                             width: 300,
                             child: Text(
                               "${myData[index]["duration"]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14),textAlign: TextAlign.center,
                             )),
+                        SizedBox (
+                          width: 300,
+                         child:   RichText(
+                              softWrap: true,
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                children: displayWidth(context)<347? [
+                                  WidgetSpan(
+                                      child: const Icon(Icons.online_prediction_outlined,color: Colors.red,size: 25,),
+                                      style: TextStyle(fontSize: 24,decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 1.5,)
+                                  ),
+                                  TextSpan(
+                                    text: " ${myData[index]["stutas"]} ",
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16, height: 1),
+                                  ),
+                                ]:null,
+
+                              ),
+                            ),
+                        ),
                         Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: const EdgeInsets.only(top: 10),
                             width: 300,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -68,24 +87,25 @@ class BootCamp extends StatelessWidget {
                               softWrap: true,
                               textAlign: TextAlign.center,
                               text: TextSpan(
-                                children: [
-                                  WidgetSpan(
-                                      child: Icon(Icons.online_prediction_outlined,color: Colors.red,size: 25,),
-                                      style: TextStyle(fontSize: 24,decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 1.5,)
-                                  ),
-                                  TextSpan(
-                                    text: " ${myData[index]["stutas"]} ",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16, height: 1),
-                                  ),
-                                ],
+                                children: displayWidth(context)>347? [
+                                WidgetSpan(
+                                    child: const Icon(Icons.online_prediction_outlined,color: Colors.red,size: 25,),
+                                    style: TextStyle(fontSize: 24,decorationColor: Colors.redAccent,decoration: myData[index]["stutas"]=="offline"?TextDecoration.lineThrough:null,decorationThickness: 1.5,)
+                                ),
+                                TextSpan(
+                                  text: " ${myData[index]["stutas"]} ",
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16, height: 1),
+                                ),
+                                ]:null,
+
                               ),
                             ),
                                 RichText(
                                   text: TextSpan(
                                       children: [
-                                        TextSpan(
+                                        const TextSpan(
                                             text: " ৳ ",
                                             style: TextStyle(
                                                 fontSize: 20,color: Colors.black
@@ -103,7 +123,7 @@ class BootCamp extends StatelessWidget {
                                 RichText(
                                   text: TextSpan(
                                       children:myData[index]["discoundPrice"]!=null?[
-                                        TextSpan(
+                                        const TextSpan(
                                             text: " ৳",
                                             style: TextStyle(
                                                 fontSize: 20,color: Colors.black
@@ -111,7 +131,7 @@ class BootCamp extends StatelessWidget {
                                         ),
                                         TextSpan(
                                           text:  " ${myData[index]["discoundPrice"]}",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color:Colors.black,
                                               fontSize: 14, fontWeight: FontWeight.bold,height: 1),
                                         )
@@ -120,21 +140,19 @@ class BootCamp extends StatelessWidget {
                                 ),
                               ],
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            try {
+
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>  BootcampDetails(title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"], courseId: myData[index]["id"],)));
-                            } catch (e) {
-                              print(e);
-                            }
+
                           },
-                          child: SizedBox(
+                          child: const SizedBox(
                               width: double.infinity,
                               height: 45,
                               child: Text(
