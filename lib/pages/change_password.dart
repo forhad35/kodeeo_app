@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/helper/validations.dart';
 
 import '../helper/display.dart';
 
@@ -10,6 +11,13 @@ class ChangPassword extends StatefulWidget {
 }
 
 class _ChangPasswordState extends State<ChangPassword> {
+  TextEditingController newPass= TextEditingController();
+  TextEditingController confirmPass= TextEditingController();
+  bool isConfirmPass=false;
+  bool isNewPass=false;
+  String errmgs="";
+  String cPassErrMgs="";
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -39,47 +47,59 @@ class _ChangPasswordState extends State<ChangPassword> {
                        style: TextStyle(fontSize: 18,),),
                      SizedBox(height: 18,),
 
-                     Text("New password must be different from previously used password",style: TextStyle(fontSize: 14),),
+                     Text("New password must be different from previously used password*",style: TextStyle(fontSize: 14),),
                      SizedBox(height: 18,),
                      Text("New password"),
-                     Container(
-                       height: 50,
-                       width: displayWidth(context)*0.8,
-                       child: TextField(
+                     TextField(
+                       onChanged: (value){
+                         print(value);
+                         if(Validations.passIsValid(value)){
+                           isNewPass=false; errmgs="";
+                           setState(() {
 
-                         onChanged: (value) {
-                           var email= value.toString();
-                         },
-                         decoration: InputDecoration(
-                           border: UnderlineInputBorder(
-                             borderRadius: BorderRadius.circular(8.0),
-                             borderSide: BorderSide.none,
-                           ),
+                           });
+                         }else{
+                           isNewPass=true;
+                           errmgs="Minimum 8 digit Require";
+                           setState(() {
 
-                           fillColor: Colors.black12,
-                           filled: true,
+                           });
+                         }
+                       },
+
+                       obscureText: true,
+                       controller: newPass,
+                       decoration: InputDecoration(
+                         errorText: isNewPass ? errmgs: null,
+
+                         isDense: true,
+                         contentPadding: EdgeInsets.all(10),
+                         border: UnderlineInputBorder(
+                           borderRadius: BorderRadius.circular(8.0),
+                           borderSide: BorderSide.none,
                          ),
+
+                         fillColor: Colors.black12,
+                         filled: true,
                        ),
                      ),
                      SizedBox(height: 10,),
                      Text("Confirm password"),
-                     Container(
-                       height: 50,
-                       width: displayWidth(context)*0.8,
-                       child: TextField(
-
-                         onChanged: (value) {
-                           var email= value.toString();
-                         },
-                         decoration: InputDecoration(
-                           border: UnderlineInputBorder(
-                             borderRadius: BorderRadius.circular(8.0),
-                             borderSide: BorderSide.none,
-                           ),
-
-                           fillColor: Colors.black12,
-                           filled: true,
+                     TextField(
+                       style: TextStyle(fontSize: 14),
+                       controller: confirmPass,
+                       obscureText: true,
+                       decoration: InputDecoration(
+                         isDense: true,
+                         errorText: isConfirmPass ? cPassErrMgs: null,
+                         contentPadding: EdgeInsets.all(10),
+                         border: UnderlineInputBorder(
+                           borderRadius: BorderRadius.circular(8.0),
+                           borderSide: BorderSide.none,
                          ),
+
+                         fillColor: Colors.black12,
+                         filled: true,
                        ),
                      ),
                      SizedBox(height: 50,),
@@ -88,6 +108,32 @@ class _ChangPasswordState extends State<ChangPassword> {
                        width: displayWidth(context)*0.8,
                        child: ElevatedButton(
                            onPressed: () {
+                              if(newPass.text.isNotEmpty && confirmPass.text.isNotEmpty){
+                                if(newPass.text.length <8){
+                                  isNewPass=true;
+                                  isConfirmPass=true;
+                                  errmgs="Minimum 8 digit Require";
+                                  cPassErrMgs="Minimum 8 digit Require";
+                                }else{
+                                  if(newPass.text!=confirmPass.text){
+                                    isConfirmPass=true;
+                                    cPassErrMgs="Password Not Matched!";
+                                  }else{
+                                    isConfirmPass=false;
+                                    isNewPass=false;
+                                    // go to changes here
+                                  }
+                                }
+                              }else if(newPass.text.isEmpty){
+                                isNewPass=true;
+                                errmgs="Field in Empty!";
+                              }else if(confirmPass.text.isEmpty){
+                                isConfirmPass=true;
+                                cPassErrMgs="Field in Empty!";
+                              }
+                              // on click state change here
+                             setState(() {
+                             });
                            },
                            style: ElevatedButton.styleFrom(
                                foregroundColor: Colors.white,

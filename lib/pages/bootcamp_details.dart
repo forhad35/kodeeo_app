@@ -9,6 +9,8 @@ class BootcampDetails extends StatefulWidget {
   final String title;
   final String img;
   final String discribtuion;
+  final double appbarHeight=80;
+  final double tabbarHeight=50;
   const BootcampDetails({
     super.key,
     required this.courseId,
@@ -36,7 +38,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Bootcamp Info"),centerTitle: true,
+       title: Text("Bootcamp Info"),centerTitle: true,
       ),
 
       body:
@@ -44,6 +46,8 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
         child: Column(
           children: [
             Container(
+              height: widget.tabbarHeight,
+              color: Colors.redAccent,
               child: TabBar(
                 controller: tabController,
                   tabs: [
@@ -60,7 +64,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
               ),
             ),
             Container(
-              height: displayHeight(context)-140,
+              height: displayHeight(context)-(widget.appbarHeight+widget.tabbarHeight),
               child: TabBarView(
                 controller: tabController,
                 children: [

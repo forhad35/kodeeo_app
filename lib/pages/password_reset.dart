@@ -37,10 +37,11 @@ var email;
                     email= value.toString();
                   },
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(10),
                     labelText: "Email",
                     prefixIcon: Icon(Icons.email),
                     labelStyle:
-                    TextStyle(fontSize: 18),
+                    TextStyle(fontSize: 14),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(width: 2, color: Colors.orange)),

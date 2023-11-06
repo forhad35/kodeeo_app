@@ -30,7 +30,6 @@ class AboutCourse extends StatelessWidget {
                   children: [
                     TextButton.icon(onPressed: (){}, icon: Icon(Icons.download_sharp,size: 14,color: Colors.orangeAccent,),
                         label: Text("Course Outline",style: TextStyle(color: Colors.orangeAccent),)),
-                    //TextButton(onPressed: (){}, child: Text("Course Outline",style: TextStyle(color: Colors.orangeAccent),),),
                     TextButton(onPressed: (){}, child: Text("Enroll Now",style: TextStyle(color: Colors.orangeAccent),),)
                   ],
                 ),
