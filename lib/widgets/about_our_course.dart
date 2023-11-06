@@ -28,9 +28,13 @@ class AboutCourse extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton.icon(onPressed: (){}, icon: Icon(Icons.download_sharp,size: 14,color: Colors.orangeAccent,),
+                    TextButton.icon(onPressed: (){
+                      print(MediaQuery.of(context).padding.top + kToolbarHeight);
+                    }, icon: Icon(Icons.download_sharp,size: 14,color: Colors.orangeAccent,),
                         label: Text("Course Outline",style: TextStyle(color: Colors.orangeAccent),)),
-                    TextButton(onPressed: (){}, child: Text("Enroll Now",style: TextStyle(color: Colors.orangeAccent),),)
+                    TextButton(onPressed: (){
+                      print(AppBar().preferredSize.height);
+                    }, child: Text("Enroll Now",style: TextStyle(color: Colors.orangeAccent),),)
                   ],
                 ),
               ),
@@ -45,9 +49,9 @@ class AboutCourse extends StatelessWidget {
               Container(
                 margin:EdgeInsets.only(top: height*0.02),
                 width: width*0.90,
+                height:height*0.23,
                 child: Image.network(
                     fit: BoxFit.fitWidth,
-                    height:height*0.23,
                     img),
               ),
 

@@ -62,6 +62,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   child: Column(
                     children: [
                       Container(
+
                         margin: EdgeInsets.only(top: 10,bottom: 0),
                         // height: 700,
                         width: displayWidth(context),

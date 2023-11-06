@@ -14,7 +14,7 @@ class _BodyState extends State<RadioButton> {
           children: [
             // if(displayWidth(context)<)
             Container(
-              width: displayWidth(context)/4,
+                width: displayWidth(context)/4,
               child: Transform.translate(offset:Offset(8, 0),
                 child: RadioListTile(
                   contentPadding: EdgeInsets.all(1),

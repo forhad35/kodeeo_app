@@ -9,9 +9,9 @@ class BootcampDetails extends StatefulWidget {
   final String title;
   final String img;
   final String discribtuion;
-  final double appbarHeight=80;
+  final double appbarHeight=AppBar().preferredSize.height;
   final double tabbarHeight=50;
-  const BootcampDetails({
+   BootcampDetails({
     super.key,
     required this.courseId,
     required this.title,
@@ -32,6 +32,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
     setState(() {
       tabController= TabController(length: 2, vsync: this);
       tabController.animateTo(0);
+
     });
   }
   @override
@@ -47,7 +48,6 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
           children: [
             Container(
               height: widget.tabbarHeight,
-              color: Colors.redAccent,
               child: TabBar(
                 controller: tabController,
                   tabs: [
@@ -63,8 +63,9 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
                   ]
               ),
             ),
+
             Container(
-              height: displayHeight(context)-(widget.appbarHeight+widget.tabbarHeight),
+              height: displayHeight(context)/1.23,
               child: TabBarView(
                 controller: tabController,
                 children: [
@@ -74,6 +75,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
               ),
 
             ),
+
           ],
         ),
       ),
