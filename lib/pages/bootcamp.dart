@@ -31,12 +31,13 @@ class BootCamp extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(
-                      fit: BoxFit.fill,
-                      repeat: ImageRepeat.noRepeat,
-                      width: 600,
-                      height: 240,
-                      "${myData[index]["image"]}" ),
+                  Container(
+                    width: 600,
+                    height: 240,
+                    child: Image.network(
+                        fit: BoxFit.fill,
+                        "${myData[index]["image"]}" ),
+                  ),
                   Container(
                     margin: const EdgeInsets.all(20),
                     child: Column(

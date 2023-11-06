@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/widgets/radio_button.dart';
@@ -19,7 +20,7 @@ class _MyCourseState extends State<MyCourse> {
     "Paid Status",
     "Certificate Status"
   ];
-  var myData = BootCamp.myData;
+  var myData = BootcampData.data;
   bool claimCertificate = false;
 
   @override
@@ -27,13 +28,12 @@ class _MyCourseState extends State<MyCourse> {
     // ========================== // Course  info  builder=================================
 
     return Container(
-      padding: EdgeInsets.only(bottom: 10),
+      margin:EdgeInsets.only(bottom: 50),
       child: ListView.builder(
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
             return Card(
               elevation: 3,
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -146,7 +146,7 @@ class _MyCourseState extends State<MyCourse> {
                               ],
                             )),
                         Container(
-                          margin: EdgeInsets.only(bottom: 10,top: 15),
+                          margin: EdgeInsets.only(bottom: 7,top: 15),
                           child: OutlinedButton.icon(
                             icon: Icon(Icons.done_outline,color: claimCertificate?Colors.indigo:Colors.transparent,),
                               onPressed: () {

@@ -15,7 +15,7 @@ class _ChangPasswordState extends State<ChangPassword> {
   TextEditingController confirmPass= TextEditingController();
   bool isConfirmPass=false;
   bool isNewPass=false;
-  String errmgs="";
+  String nPassErrMgs="";
   String cPassErrMgs="";
 
   @override
@@ -52,17 +52,14 @@ class _ChangPasswordState extends State<ChangPassword> {
                      Text("New password"),
                      TextField(
                        onChanged: (value){
-                         print(value);
                          if(Validations.passIsValid(value)){
-                           isNewPass=false; errmgs="";
+                           isNewPass=false; nPassErrMgs="";
                            setState(() {
-
                            });
                          }else{
                            isNewPass=true;
-                           errmgs="Minimum 8 digit Require";
+                           nPassErrMgs="Minimum 8 digit Require";
                            setState(() {
-
                            });
                          }
                        },
@@ -70,8 +67,7 @@ class _ChangPasswordState extends State<ChangPassword> {
                        obscureText: true,
                        controller: newPass,
                        decoration: InputDecoration(
-                         errorText: isNewPass ? errmgs: null,
-
+                         errorText: isNewPass ? nPassErrMgs: null,
                          isDense: true,
                          contentPadding: EdgeInsets.all(10),
                          border: UnderlineInputBorder(
@@ -112,7 +108,7 @@ class _ChangPasswordState extends State<ChangPassword> {
                                 if(newPass.text.length <8){
                                   isNewPass=true;
                                   isConfirmPass=true;
-                                  errmgs="Minimum 8 digit Require";
+                                  nPassErrMgs="Minimum 8 digit Require";
                                   cPassErrMgs="Minimum 8 digit Require";
                                 }else{
                                   if(newPass.text!=confirmPass.text){
@@ -126,7 +122,7 @@ class _ChangPasswordState extends State<ChangPassword> {
                                 }
                               }else if(newPass.text.isEmpty){
                                 isNewPass=true;
-                                errmgs="Field in Empty!";
+                                nPassErrMgs="Field in Empty!";
                               }else if(confirmPass.text.isEmpty){
                                 isConfirmPass=true;
                                 cPassErrMgs="Field in Empty!";
