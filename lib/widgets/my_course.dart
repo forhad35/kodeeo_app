@@ -28,8 +28,8 @@ class _MyCourseState extends State<MyCourse> {
     // ========================== // Course  info  builder=================================
 
     return Container(
-      margin:EdgeInsets.only(bottom: 50),
       child: ListView.builder(
+        padding: EdgeInsets.only(bottom: 30),
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
             return Card(
@@ -183,7 +183,6 @@ class _MyCourseState extends State<MyCourse> {
           contentPadding: EdgeInsets.all(20),
           contentTextStyle: TextStyle(
               fontSize: 12,
-
               color: Colors.red),
         ));
   }
