@@ -33,6 +33,7 @@ class _MyCourseState extends State<MyCourse> {
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
             return Card(
+              clipBehavior: Clip.hardEdge,
               elevation: 3,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -60,23 +60,14 @@ class _HomeState extends State<Home> {
                       enableInfiniteScroll: true
                     ),
                     items: imgList
-                        .map((item) => Container(
-                      padding: EdgeInsets.only(bottom: 5),
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,offset: Offset(0, 0),
-                            blurRadius: 5
-                          )
-                        ],
-                        borderRadius: BorderRadius.all(Radius.circular(12))
-                      ),
-                      margin: EdgeInsets.only(left: 10,right: 10),
-                      child: Center(
-                          child:
-                          Image.network(item, fit: BoxFit.cover, width: double.infinity,)),
-                    ))
+                        .map((item) => Padding(
+                          padding: const EdgeInsets.only(left: 5,right: 5),
+                          child: Card(
+                            elevation: 5,
+                            clipBehavior: Clip.hardEdge,
+                            child: Image.network(item, fit: BoxFit.cover, width: double.infinity,),
+                          ),
+                        ))
                         .toList(),
                   )),
               SizedBox(height: 20,),
@@ -123,24 +114,26 @@ class _HomeState extends State<Home> {
                           padding: const EdgeInsets.only(left: 10, right: 10),
                           child: SizedBox(
                             width: _width * 0.70,
-                            child: InkWell(
-                              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
-                              child: Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                elevation: 3,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      const BorderRadius.all(Radius.circular(20)),
-                                ),
+                            child: Card(
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              elevation: 3,
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: InkWell(
+                                onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) =>  BootcampDetails(courseId: myData[index]["id"],title: myData[index]["name"],img: myData[index]["image"],discribtuion: myData[index]["details"],))),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.network(
-                                        fit: BoxFit.fitWidth,
-                                        repeat: ImageRepeat.noRepeat,
-                                        width: _width * 0.90,
-                                        height: 150,
-                                        "${myData[index]["image"]}"),
+                                    Container(
+                                      width: _width * 0.90,
+                                      height: 150,
+                                      child: Image.network(
+                                          fit: BoxFit.fill,
+                                          repeat: ImageRepeat.noRepeat,
+                                          "${myData[index]["image"]}"),
+                                    ),
                                     Container(
                                       margin: EdgeInsets.all(10),
                                       child: Column(

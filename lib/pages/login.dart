@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
   List<String> userData = [];
 String? helper ;
   String emailRegex = r'^[\w-]+(\.[a-z]{2,8}+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
-
+var isEnrollment = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,11 @@ String? helper ;
                 height: 50,
               ),
               Image.asset("images/img.png",
-                height: 120,
-                width: 150,
+                height: 100,
+                width: 130,
               ),
-              // Text("Email : ${userData[0]} , Pass : ${userData[1]}"),
+              SizedBox(height: 25,),
+              Text(isEnrollment?"Please Login to enroll":"",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               SizedBox(
                 height: 50,
               ),
@@ -159,6 +160,8 @@ String? helper ;
               ),
               TextButton(
                   onPressed: () {
+                    _EmailController.clear();
+                    _PassController.clear();
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PassReset()));
 
                   },
@@ -209,7 +212,12 @@ String? helper ;
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Don't have an account!"),
-                      TextButton(onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Registration())), child: Text("Register Here!")),
+                      TextButton(onPressed: (){
+                        _EmailController.clear();
+                        _PassController.clear();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Registration()));
+                      },
+                    child: Text("Register Here!")),
                     ],
                   ),
                 ),
