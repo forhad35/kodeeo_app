@@ -69,7 +69,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
               child: TabBarView(
                 controller: tabController,
                 children: [
-                  AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion),
+                  AboutCourse(title: widget.title, img: widget.img, discribtuion: widget.discribtuion,courseId: widget.courseId,),
                   TrainnerCard(trainnerId: BootcampData.getTrainnerId(widget.courseId)!,),
                 ],
               ),

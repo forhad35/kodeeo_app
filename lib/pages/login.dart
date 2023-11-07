@@ -8,7 +8,12 @@ import 'package:kodeeo_app/pages/password_reset.dart';
 import 'package:kodeeo_app/pages/registration_page.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  final int? courseId;
+
+  const Login({
+    this.courseId
+
+});
 
   @override
   State<Login> createState() => _LoginState();
@@ -24,7 +29,7 @@ class _LoginState extends State<Login> {
   List<String> userData = [];
 String? helper ;
   String emailRegex = r'^[\w-]+(\.[a-z]{2,8}+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
-var isEnrollment = true;
+// var isEnrollment = widget.courseId ;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,7 @@ var isEnrollment = true;
                 width: 130,
               ),
               SizedBox(height: 25,),
-              Text(isEnrollment?"Please Login to enroll":"",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+              Text(widget.courseId!=null?"Please Login to enroll":"",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               SizedBox(
                 height: 50,
               ),
