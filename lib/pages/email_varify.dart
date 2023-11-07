@@ -8,7 +8,7 @@ class EmailVerification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Container(
+      body: SizedBox(
         height: displayHeight(context),
         width: displayWidth(context),
 
