@@ -63,8 +63,8 @@ class Contact {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  item.image,
+               imageLoader(
+                 imageUrl:item.image,
                   width: 150, height: 150,
                 ),
                 Text(item.title, textAlign: TextAlign.center,
