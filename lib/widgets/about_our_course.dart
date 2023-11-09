@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/pages/login.dart';
 class AboutCourse extends StatelessWidget {
   final String title;
@@ -80,9 +81,7 @@ class AboutCourse extends StatelessWidget {
                         margin:EdgeInsets.only(top: 20),
                         width: displayWidth(context)*0.90,
                         height:displayHeight(context)*0.20,
-                        child: Image.network(
-                            fit: BoxFit.fitWidth,
-                            img),
+                        child: imageLoader(imageUrl: img,fit: BoxFit.fitWidth)
                       ),
                       Container(
                           margin: EdgeInsets.only(top: 20),

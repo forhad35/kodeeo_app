@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:kodeeo_app/helper/image.dart';
 
 class OurClient extends StatelessWidget {
   OurClient({super.key});
@@ -28,10 +29,8 @@ class OurClient extends StatelessWidget {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    item,fit: BoxFit.fill,
-                    width: 1000,
-                  ),
+                  child: imageLoader(imageUrl: item)
+                  
                 ),
               ),
             ))

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
+import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/pages/home.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:full_screen_image/full_screen_image.dart';
@@ -74,7 +75,8 @@ Widget loadimg(String PhotosLink){
         ),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
-        child: Image.network(PhotosLink,fit: BoxFit.cover,isAntiAlias: true,)),
+        child:imageLoader(imageUrl: PhotosLink,fit: BoxFit.cover)
+  ),
   );
 }
 //testing zoomable image

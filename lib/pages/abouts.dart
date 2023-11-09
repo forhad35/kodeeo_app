@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 
 class AboutUs extends StatefulWidget {
    AboutUs({super.key});
@@ -43,7 +43,13 @@ var image2="https://cdn2.iconfinder.com/data/icons/web-development-137/256/-_001
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(width:MediaQuery.of(context).size.width /2,child: Text(description,style: TextStyle(fontSize: 18,),)),
-                  Container(child: Image.network(image2,height: 250,width: MediaQuery.of(context).size.width/2.5,)),
+                  Container(
+                    child: imageLoader(
+                    imageUrl: image2,
+                    height: 250,
+                      width: MediaQuery.of(context).size.width/2.5
+
+                  ),),
                 ],
               ),
               Text(despcription_2,style: TextStyle(fontSize: 18),),

@@ -7,6 +7,8 @@ import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/photo_gallery.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
+
+import '../helper/image.dart';
 class Drawers extends StatelessWidget {
    Drawers({super.key});
   String imgLink = "https://cdn1.iconfinder.com/data/icons/neutro-essential/32/user-512.png";
@@ -32,7 +34,7 @@ class Drawers extends StatelessWidget {
                         width: 1
                     )
                 ),
-                child: Image.network(imgLink,height: 40,width: 40,)),
+                child: imageLoader(imageUrl:imgLink,height: 40,width: 40,errorImage: "images/profile.png")),
             title:     Text("MD : Hasan Mirza",style: TextStyle(fontSize: 14),),
             subtitle:  Text("exmaple@gmail.com",style: TextStyle(fontSize: 12)),
           ),

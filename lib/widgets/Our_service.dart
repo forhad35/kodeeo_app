@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/ServiceModel.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 class OurService  {
   // OurService({super.key});
   static var itemList= ServiceDataList().getData();
@@ -19,10 +20,7 @@ class OurService  {
               child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Image.network(
-                      item.imageUrl,fit: BoxFit.fill,
-                      width: 1000,
-                    ),
+                    child: imageLoader(imageUrl: item.imageUrl)
                   ),
               ),
             ))
@@ -56,7 +54,7 @@ class OurService  {
               child: Column(
               children:[
                 SizedBox(height: 5,),
-                Image.network(itemList[index].imageUrl,width: 50,height: 30,),
+                imageLoader(imageUrl:itemList[index].imageUrl,width: 50,height: 30,),
                 SizedBox(height: 5,),
                 Text(itemList[index].title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),),
                 SizedBox(height: 5,),

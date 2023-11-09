@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/widgets/radio_button.dart';
 
@@ -41,9 +42,7 @@ class _MyCourseState extends State<MyCourse> {
                   Container(
                     width: displayWidth(context) * 0.90,
                     height: 180,
-                    child: Image.network(
-                        fit: BoxFit.fill,
-                        "${myData[index]["image"]}"),
+                    child: imageLoader(imageUrl: myData[index]["image"])
                   ),
                   Container(
                     margin: EdgeInsets.all(10),

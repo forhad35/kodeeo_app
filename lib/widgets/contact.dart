@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/contact_data.dart';
 
+import '../helper/image.dart';
+
 class Contact {
   static Widget contactCard(List list) {
     return Container(
@@ -16,7 +18,7 @@ class Contact {
           child: Column(
               children: [
                 SizedBox(height: 5,),
-                Image.network(list[0], width: 50, height: 50,),
+                imageLoader(imageUrl:list[0], width: 50, height: 50,),
                 Text(list[1],
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                 Text(list[2]),

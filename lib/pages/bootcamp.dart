@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 import 'bootcamp_details.dart';
 class BootCamp extends StatelessWidget {
   static List myData = BootcampData.data;
@@ -34,9 +35,7 @@ class BootCamp extends StatelessWidget {
                   Container(
                     width: 600,
                     height: 240,
-                    child: Image.network(
-                        fit: BoxFit.fill,
-                        "${myData[index]["image"]}" ),
+                    child: imageLoader(imageUrl: myData[index]["image"])
                   ),
                   Container(
                     margin: const EdgeInsets.all(20),

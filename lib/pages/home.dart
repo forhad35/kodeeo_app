@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/pages/bootcamp.dart';
 import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/notification.dart';
@@ -67,7 +69,7 @@ class _HomeState extends State<Home> {
                             child: Card(
                               elevation: 5,
                               clipBehavior: Clip.hardEdge,
-                              child: FadeInImage.assetNetwork(image: item, fit: BoxFit.cover, width: double.infinity, placeholder: 'images/loading.gif',),
+                              child:imageLoader(imageUrl: item,fit: BoxFit.cover),
                             ),
                           ))
                           .toList(),
@@ -131,11 +133,8 @@ class _HomeState extends State<Home> {
                                       Container(
                                         width: _width * 0.90,
                                         height: 150,
-                                        child: Image.network(
-                                            fit: BoxFit.fill,
-                                            repeat: ImageRepeat.noRepeat,
-                                            "${myData[index]["image"]}"),
-                                      ),
+                                        child:imageLoader(imageUrl:myData[index]["image"],),
+                                       ),
                                       Container(
                                         margin: EdgeInsets.all(10),
                                         child: Column(

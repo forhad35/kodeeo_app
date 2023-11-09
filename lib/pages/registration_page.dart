@@ -23,7 +23,7 @@ class _RegistrationState extends State<Registration> {
             key: _registrationkey,
             child: Column(
               children: [
-                Image.network("https://www.kodeeo.com/images/kodeeo%20(1).webp",height: 100,width: 100,),
+                Image.asset("images/img.png",height: 100,width: 100,),
                 // ----------------------------------Name button---------------------------
                 Container(
                   margin: EdgeInsets.all(10),
