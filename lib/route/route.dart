@@ -17,16 +17,12 @@ class Routes {
         return MaterialPageRoute(builder: (context)=>SplashScreen());
       case home:
         return MaterialPageRoute(builder: (context)=>Home());
-        break;
       case loginpage:
         return MaterialPageRoute(builder: (context)=>Login());
-        break;
       case aboutspage:
         return MaterialPageRoute(builder: (context)=>AboutUs());
-        break;
       case bootcampspage:
         return MaterialPageRoute(builder: (context)=>BootCamp());
-        break;
       default:
         throw "No match";
     }

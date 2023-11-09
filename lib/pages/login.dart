@@ -1,8 +1,6 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/password_reset.dart';
 import 'package:kodeeo_app/pages/registration_page.dart';

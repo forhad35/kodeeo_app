@@ -1,6 +1,5 @@
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import '../route/route.dart';
 class MainRoute extends StatefulWidget {
   const MainRoute({super.key});
 
@@ -11,9 +10,7 @@ class _MainRouteState extends State<MainRoute> {
   @override
   Widget build(BuildContext context) {
     int _index=0;
-    var pages =[
 
-    Routes.home,Routes.bootcampspage,Routes.loginpage];
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).backgroundColor,

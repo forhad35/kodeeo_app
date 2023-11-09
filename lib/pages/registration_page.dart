@@ -8,6 +8,7 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+
   var inputData =  [];
   final _registrationkey = GlobalKey<FormState>();
   @override
@@ -174,7 +175,14 @@ class _RegistrationState extends State<Registration> {
                 Container(
                   padding: EdgeInsets.only(top: 15,bottom: 15),
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                        //SharedPref().setData("id", "11022");
+                        // SharedPref.getData("user");
+                        // SharedPref.getData("id");
+
+
+                      },
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.orange,
                           backgroundColor: Colors.white),

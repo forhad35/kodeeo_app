@@ -21,31 +21,30 @@ You'll learn the most advanced cutting edge web technologies to built your websi
       case 1:{
         return 1;
       }
-      break;
       case 2:{
         return 3;
       }
-      break;
+
       case 3:{
         return 2;
       }
-      break;
+
       case 4:{
         return 4;
       }
-      break;
+
       case 5:{
         return 2;
       }
-      break;
+
       case 6:{
         return 1;
       }
-      break;
+
       case 7:{
         return 1;
       }
-      break;
+
       default:{
         return null;
       }

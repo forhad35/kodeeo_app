@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/change_password.dart';
-
+@immutable
 class EmailVerification extends StatelessWidget {
   EmailVerification({super.key});
   var vCode;

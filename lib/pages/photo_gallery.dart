@@ -1,11 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/photos_link.dart';
 import 'package:kodeeo_app/helper/image.dart';
-import 'package:kodeeo_app/pages/home.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:full_screen_image/full_screen_image.dart';
-import 'package:photo_view/photo_view.dart';
 
 class PhotoGallery extends StatelessWidget {
    PhotoGallery({super.key});

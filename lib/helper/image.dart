@@ -10,7 +10,7 @@ Widget imageLoader(
     }
     ){
   return  CachedNetworkImage(
-    imageUrl: "$imageUrl",
+    imageUrl: imageUrl,
     placeholder: (context, url) =>Image.asset("images/loading.gif",), //CircularProgressIndicator(),
     errorWidget: (context, url, error) => Image.asset(errorImage),
     fit: fit,

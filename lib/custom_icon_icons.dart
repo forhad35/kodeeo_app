@@ -25,14 +25,14 @@ class CustomIcon {
   static const _kFontFam = 'CustomIcon';
   static const String? _kFontPkg = null;
 
-  static const IconData info_circled = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData infoCircled = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData cancel = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData help_circled = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData helpCircled = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData phone = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData folder = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chat = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData note_beamed = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData noteBeamed = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData search = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData mail = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);

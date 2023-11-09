@@ -2,7 +2,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/ServiceModel.dart';
-import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/helper/image.dart';
 class OurService  {
   // OurService({super.key});

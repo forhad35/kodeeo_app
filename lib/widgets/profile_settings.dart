@@ -12,7 +12,6 @@ class _ProfileSettingsState extends State<ProfileSettings> {
   var oldPass=TextEditingController();
   var newPass=TextEditingController();
   var confirmPass=TextEditingController();
-  @override
   void modal(BuildContext context) {
     var oldPass=TextEditingController();
     var newPass=TextEditingController();

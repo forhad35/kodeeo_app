@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kodeeo_app/pages/home.dart';
+
 import 'package:kodeeo_app/pages/splash_screen.dart';
-import 'package:kodeeo_app/route/route.dart';
+
 
 void main() {
   runApp(const MyApp());

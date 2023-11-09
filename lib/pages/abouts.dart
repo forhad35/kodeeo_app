@@ -30,7 +30,7 @@ var image2="https://cdn2.iconfinder.com/data/icons/web-development-137/256/-_001
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(this.page_title)),
+      appBar: AppBar(title: Text(page_title)),
         body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),

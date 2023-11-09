@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kodeeo_app/core/colors.dart';
-import 'dart:math' as math;
 
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/widgets/my_course.dart';
 import 'package:kodeeo_app/widgets/profile_info2.dart';
-import 'package:kodeeo_app/widgets/profile_settings.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

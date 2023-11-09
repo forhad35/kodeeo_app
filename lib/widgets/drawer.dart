@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:kodeeo_app/data/model/contact_data.dart';
-import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/abouts.dart';
 import 'package:kodeeo_app/pages/contact_page.dart';
 import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/photo_gallery.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
-
 import '../helper/image.dart';
+@immutable
 class Drawers extends StatelessWidget {
    Drawers({super.key});
-  String imgLink = "https://cdn1.iconfinder.com/data/icons/neutro-essential/32/user-512.png";
+  final String imgLink = "https://cdn1.iconfinder.com/data/icons/neutro-essential/32/user-512.png";
 
   @override
   Widget build(BuildContext context) {

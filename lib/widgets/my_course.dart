@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/bootcamp_data.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/helper/image.dart';
-import 'package:kodeeo_app/pages/bootcamp.dart';
-import 'package:kodeeo_app/widgets/radio_button.dart';
+
 
 class MyCourse extends StatefulWidget {
   const MyCourse({super.key});
@@ -13,14 +12,7 @@ class MyCourse extends StatefulWidget {
 }
 
 class _MyCourseState extends State<MyCourse> {
-  static var courseTitle = [
-    "Instructor Name",
-    "Course Name",
-    "Course Price",
-    "Dui Amount",
-    "Paid Status",
-    "Certificate Status"
-  ];
+
   var myData = BootcampData.data;
   bool claimCertificate = false;
 
