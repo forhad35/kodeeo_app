@@ -108,7 +108,7 @@ class TrainnerCard extends StatelessWidget {
                                   decoration:const BoxDecoration(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(100))),
-                                  child: imageLoader(imageUrl: trainnerData!.image)),
+                                  child: imageLoader(imageUrl: trainnerData!.image,errorImage: "images/profile.png")),
                             )),
                       ],
                     ),

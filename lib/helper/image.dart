@@ -10,9 +10,16 @@ Widget imageLoader(
     }
     ){
   return  CachedNetworkImage(
-    imageUrl: imageUrl,
-    placeholder: (context, url) =>Image.asset("images/loading.gif",), //CircularProgressIndicator(),
-    errorWidget: (context, url, error) => Image.asset(errorImage),
+    imageUrl: "$imageUrl",
+    placeholder: (context, url) =>Center(
+      child: Image.asset("images/loading.gif",width: 20,)
+    ),
+    errorWidget: (context, url, error) =>errorImage==null?Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset("images/wifi-slash.png",width: 20,) ,
+        const Text(" Unable to load"),
+      ]):Image.asset(errorImage,),
     fit: fit,
     width: width,
     height: height,
