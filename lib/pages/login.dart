@@ -2,8 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/pages/home.dart';
 import 'package:kodeeo_app/pages/password_reset.dart';
 import 'package:kodeeo_app/pages/registration_page.dart';
+
+import '../helper/shared_value_helper.dart';
 
 class Login extends StatefulWidget {
   final int? courseId;
@@ -179,6 +182,9 @@ String? helper ;
                     // _EmailController.clear();
                     setState(() {
                       if(_loginkey.currentState!.validate()){
+                        is_log_in.$ = true;
+                        is_log_in.save();
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
                         print( "Email: ${_EmailController.text } ,password : ${_PassController.text}");
                       }else{
                         print(" not validet");

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:kodeeo_app/pages/splash_screen.dart';
+import 'package:shared_value/shared_value.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(SharedValue.wrapApp( const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kodeeo_app/pages/abouts.dart';
 import 'package:kodeeo_app/pages/contact_page.dart';
+import 'package:kodeeo_app/pages/home.dart';
 import 'package:kodeeo_app/pages/login.dart';
 import 'package:kodeeo_app/pages/photo_gallery.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
 import '../helper/image.dart';
+import '../helper/shared_value_helper.dart';
 @immutable
 class Drawers extends StatelessWidget {
    Drawers({super.key});
@@ -71,7 +73,21 @@ class Drawers extends StatelessWidget {
               title:  Text('Photo gallery',style: TextStyle(fontSize: 14,),),
             ),
           ),
-          InkWell(
+          is_log_in.$ == true?InkWell(
+            onTap: (){
+              is_log_in.$ = false;
+              is_log_in.save();
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
+            },
+            child: ListTile(
+              horizontalTitleGap: 30,
+              leading: Icon( // <-- Icon
+                Icons.logout,
+                size: 24.0,color: Colors.grey,
+              ), // <-- Text
+              title:  Text('Log Out',style: TextStyle(fontSize: 14,),),
+            ),
+          ):InkWell(
             onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>Login())),
             child: ListTile(
               horizontalTitleGap: 30,

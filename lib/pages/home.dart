@@ -10,6 +10,8 @@ import 'package:kodeeo_app/pages/profile.dart';
 import 'package:kodeeo_app/widgets/Our_service.dart';
 import 'package:kodeeo_app/widgets/drawer.dart';
 import 'package:kodeeo_app/widgets/our_client.dart';
+import '../helper/image.dart';
+import '../helper/shared_value_helper.dart';
 import 'bootcamp_details.dart';
 
 class Home extends StatefulWidget {
@@ -22,6 +24,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   var imgList = PhotosLink.imgList;
+  initState(){
+    is_log_in.load();
+    print(is_log_in.$);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var myData = BootCamp.myData;
@@ -60,7 +67,7 @@ class _HomeState extends State<Home> {
                             child: Card(
                               elevation: 5,
                               clipBehavior: Clip.hardEdge,
-                              child: FadeInImage.assetNetwork(image: item, fit: BoxFit.cover, width: double.infinity, placeholder: 'images/loading.gif',),
+                              child: imageLoader(imageUrl:item,fit:BoxFit.cover)
                             ),
                           ))
                           .toList(),
