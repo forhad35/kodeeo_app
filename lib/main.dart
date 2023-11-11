@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kodeeo_app/pages/splash_screen.dart';
 import 'package:shared_value/shared_value.dart';
 
-
 void main() {
   runApp(SharedValue.wrapApp( const MyApp()));
 }

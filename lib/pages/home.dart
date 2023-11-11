@@ -26,6 +26,9 @@ class _HomeState extends State<Home> {
   var imgList = PhotosLink.imgList;
   initState(){
     is_log_in.load();
+    isChecked.load();
+    sharedEmail.load();
+    sharedPass.load();
     print(is_log_in.$);
     super.initState();
   }

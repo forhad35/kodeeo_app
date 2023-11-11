@@ -13,8 +13,8 @@ class Login extends StatefulWidget {
 
   const Login({
     this.courseId
-
 });
+
 
   @override
   State<Login> createState() => _LoginState();
@@ -31,6 +31,15 @@ class _LoginState extends State<Login> {
 String? helper ;
   String emailRegex = r'^[\w-]+(\.[a-z]{2,8}+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
 // var isEnrollment = widget.courseId ;
+  @override
+  void initState() {
+    if(isChecked.$) {
+      _EmailController.text = sharedEmail.$;
+      _PassController.text = sharedPass.$;
+    }
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,9 +170,19 @@ String? helper ;
                 keyboardType: TextInputType.visiblePassword,
                 textInputAction: TextInputAction.done,
               ),
-              SizedBox(
-                height: 30,
+              Container(
+                margin: EdgeInsets.only(top: 15,bottom: 15),
+                alignment: Alignment.centerLeft,
+                child: CheckboxListTile(value: isChecked.$, onChanged: (value){
+                  setState(() {
+                    isChecked.$=value!;
+                  });
+                },title: Text("Remember Me"),
+                controlAffinity: ListTileControlAffinity.leading,
+                ),
+
               ),
+
               TextButton(
                   onPressed: () {
                     _EmailController.clear();
@@ -184,6 +203,13 @@ String? helper ;
                       if(_loginkey.currentState!.validate()){
                         is_log_in.$ = true;
                         is_log_in.save();
+                        if(isChecked.$){
+                          sharedEmail.$=_EmailController.text;
+                          sharedPass.$=_PassController.text;
+                          sharedEmail.save();
+                          sharedPass.save();
+                        }
+
                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
                         print( "Email: ${_EmailController.text } ,password : ${_PassController.text}");
                       }else{
