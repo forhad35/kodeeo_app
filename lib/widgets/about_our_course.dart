@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/helper/image.dart';
 import 'package:kodeeo_app/pages/login.dart';
+
+import '../helper/shared_value_helper.dart';
 class AboutCourse extends StatelessWidget {
   final String title;
   final String img;
@@ -47,8 +49,24 @@ class AboutCourse extends StatelessWidget {
                     backgroundColor: Colors.orangeAccent
                 ),),
               ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(courseId: courseId,)));
-                print(AppBar().preferredSize.height);
+                if(is_log_in.$){
+                  showDialog(context: context,
+                      builder: (context){
+                    return const AlertDialog(
+                      alignment: Alignment.centerLeft,
+                      icon: Icon(Icons.done ,color: Colors.white,size: 25,) ,
+                      backgroundColor: Colors.green,
+                      content: Text("You have successfully enrolled.You will receive a confirmation SMS",style: TextStyle(color: Colors.white),),
+
+                    );
+                      }
+                  );
+
+                }else{
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(courseId: courseId,)));
+                }
+
+
               },
                 child: Text("Enroll Now",style: TextStyle(color: Colors.white),),
                 style: ElevatedButton.styleFrom(

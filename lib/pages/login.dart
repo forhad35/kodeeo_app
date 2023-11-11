@@ -173,12 +173,16 @@ String? helper ;
               Container(
                 margin: EdgeInsets.only(top: 15,bottom: 15),
                 alignment: Alignment.centerLeft,
-                child: CheckboxListTile(value: isChecked.$, onChanged: (value){
-                  setState(() {
-                    isChecked.$=value!;
-                  });
-                },title: Text("Remember Me"),
-                controlAffinity: ListTileControlAffinity.leading,
+                child: Row(
+                  children: [
+                    Checkbox(value: isChecked.$, onChanged: (value){
+                      setState(() {
+                        isChecked.$=value!;
+                      });
+                    },
+                    ),
+                    Text("Remember Me"),
+                  ],
                 ),
 
               ),
