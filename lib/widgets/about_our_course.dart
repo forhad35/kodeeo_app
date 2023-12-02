@@ -23,7 +23,7 @@ class AboutCourse extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: (displayHeight(context)/1.23)*0.10,
+          height: (displayHeight(context) *0.80)*0.10,
           padding: const EdgeInsets.all(10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,7 +79,7 @@ class AboutCourse extends StatelessWidget {
           ),
         ),
         Container(
-          height: (displayHeight(context)/1.23)*0.90,
+          height: (displayHeight(context) *0.80)*0.90,
           width: displayWidth(context)*0.92,
 
           child: SingleChildScrollView(

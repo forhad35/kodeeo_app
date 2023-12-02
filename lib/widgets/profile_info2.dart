@@ -35,7 +35,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
-        height: displayHeight(context)*0.53,
+        // height: displayHeight(context)*0.55,
         child: Column(
           children: [
             Container(
@@ -54,11 +54,11 @@ class _ProfileInfoState extends State<ProfileInfo> {
                     ),
                     label: Text("Edit"))),
             Container(
-              height: displayHeight(context)*0.48,
+              height: displayHeight(context)*0.40,
               child: SingleChildScrollView(
                 child: Container(
                   width: displayWidth(context),
-                  height: displayHeight(context)*0.60,
+                  height: displayHeight(context)*0.80,
                   child: Column(
                     children: [
                       Container(

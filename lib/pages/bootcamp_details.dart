@@ -37,6 +37,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
   }
   @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
       appBar: AppBar(
        title: Text("Bootcamp Info"),centerTitle: true,
@@ -47,7 +48,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
         child: Column(
           children: [
             Container(
-              height: widget.tabbarHeight,
+              height: displayHeight(context) * 0.05,
               child: TabBar(
                 controller: tabController,
                   tabs: [
@@ -65,7 +66,7 @@ class _BootcampDetailsState extends State<BootcampDetails> with TickerProviderSt
             ),
 
             Container(
-              height: displayHeight(context)/1.23,
+              height: displayHeight(context)* 0.80,
               child: TabBarView(
                 controller: tabController,
                 children: [
