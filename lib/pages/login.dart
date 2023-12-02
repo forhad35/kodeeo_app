@@ -69,109 +69,103 @@ String? helper ;
               SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                height: 40,
-                width: MediaQuery.sizeOf(context).width *0.90,
-                child: TextFormField(
-                  controller: _EmailController,
-                  validator: (value){
+              TextFormField(
+                controller: _EmailController,
+                validator: (value){
 
-                    if(value == ""){
-                      return " Please enter email";
-                    }else if(value != email){
-                       return " Email doesn't  match";
-                    }
-                    return null;
-                  },
-                  onChanged: (value) {
-                    // userData[0] = value.toString();
-                    // setState(() {
-                      // helper= value.toString();
-                      // if(!RegExp(emailRegex).hasMatch(value)){
-                      //   helper="invalid mail";
-                      // }else{
-                      //   helper="velid";
-                      // }
-                    // });
-                  },
-                  style: TextStyle(height: 1,fontSize: 12),
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(color: Colors.red,fontSize: 12),
-                    labelText: "Email",
-                    prefixIcon: Icon(Icons.email),
-                    labelStyle: TextStyle(fontSize: 14),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.orange)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.indigo)),
-                    errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
-                    focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                  if(value == ""){
+                    return " Please enter email";
+                  }else if(value != email){
+                     return " Email doesn't  match";
+                  }
+                  return null;
+                },
+                onChanged: (value) {
+                  // userData[0] = value.toString();
+                  // setState(() {
+                    // helper= value.toString();
+                    // if(!RegExp(emailRegex).hasMatch(value)){
+                    //   helper="invalid mail";
+                    // }else{
+                    //   helper="velid";
+                    // }
+                  // });
+                },
 
-                  ),
+                style: TextStyle(height: 1,fontSize: 12),
+                decoration: InputDecoration(
+                  errorStyle: TextStyle(color: Colors.red,fontSize: 12),
+                  labelText: "Email",
+                  prefixIcon: Icon(Icons.email,size: 20,),
+                  labelStyle: TextStyle(fontSize: 14),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.orange)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.indigo)),
+                  errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                  focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                height: 40,
-                width: MediaQuery.sizeOf(context).width *0.90,
-                child: TextFormField(
-                  validator: (value){
-                    if(value == ""){
-                      return " Please enter password";
-                    }else if(value != pass){
-                      return " Password doesn't  match";
-                    }
-                    return null;
-                  },
-                  // onChanged: (value) {
-                  //   userData[1] = value.toString();
-                  // },
-                  controller: _PassController,
+              TextFormField(
+                validator: (value){
+                  if(value == ""){
+                    return " Please enter password";
+                  }else if(value != pass){
+                    return " Password doesn't  match";
+                  }
+                  return null;
+                },
+                // onChanged: (value) {
+                //   userData[1] = value.toString();
+                // },
+                controller: _PassController,
 
-                  obscureText: passwordVisible,
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(color: Colors.red,fontSize: 12),
-                    labelText: "Password",
-                    prefixIcon: Icon(Icons.lock,size: 12,),
-                    labelStyle: TextStyle(fontSize: 12,),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.orange)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.indigo)),
-                    errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
-                    focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
-                    suffixIcon: IconButton(
-                      icon: Icon(passwordVisible
-                          ? Icons.visibility
-                          : Icons.visibility_off,size: 14,),
-                      onPressed: () {
-                        setState(
-                              () {
-                            passwordVisible = !passwordVisible;
-                          },
-                        );
-                      },
-                    ),
-                    alignLabelWithHint: false,
-                    // filled: true,
+                obscureText: passwordVisible,
+                style: TextStyle(height: 1,fontSize: 12),
+                decoration: InputDecoration(
+                  errorStyle: TextStyle(color: Colors.red,fontSize: 12),
+                  labelText: "Password",
+                  prefixIcon: Icon(Icons.lock,size: 20,),
+                  labelStyle: TextStyle(fontSize: 12,),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.orange)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.indigo)),
+                  errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                  focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                  suffixIcon: IconButton(
+                    icon: Icon(passwordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,size: 14,),
+                    onPressed: () {
+                      setState(
+                            () {
+                          passwordVisible = !passwordVisible;
+                        },
+                      );
+                    },
                   ),
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.done,
+                  alignLabelWithHint: false,
+                  // filled: true,
                 ),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
               ),
               Container(
                 margin: EdgeInsets.only(top: 15,bottom: 15,left: 15),
