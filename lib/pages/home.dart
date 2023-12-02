@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
 
 
           SizedBox(
-            height: displayHeight(context)*0.48,
+            height: displayHeight(context)*0.435,
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -264,7 +264,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       bottomNavigationBar: Container(
-        height: displayHeight(context)*0.08,
+        height: displayHeight(context)*0.085,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -275,46 +275,43 @@ class _HomeState extends State<Home> {
           ],
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
-            child: GNav(
-              rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
-              gap: 8,
-              activeColor: Colors.black,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.black,
-              tabs: [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: FontAwesomeIcons.list,
-                  text: 'Bootcamp',
-                ),
-                GButton(
-                  icon: Icons.person,
-                  text: 'Profile',
-                ),
+          child: BottomNavigationBar(
+            currentIndex: 0,
+            // rippleColor: Colors.grey[300]!,
+            // hoverColor: Colors.grey[100]!,
+            // gap: 8,
+            // activeColor: Colors.black,
+            iconSize: 16,
+            // duration: Duration(milliseconds: 400),
+            // tabBackgroundColor: Colors.grey[100]!,
+            // color: Colors.black,
+            items: [
 
-              ],
-              selectedIndex: 0,
-              onTabChange: (index) {
-                setState(() {
-                  if(index != 0){
-                    if(index == 1){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BootCamp()));
-                    }else if(index ==2){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
-                    }
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.list),
+                label: 'Bootcamp',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+
+            ],
+            onTap: (index) {
+              setState(() {
+                if(index != 0){
+                  if(index == 1){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BootCamp()));
+                  }else if(index ==2){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
                   }
-                });
-              },
-            ),
+                }
+              });
+            },
           ),
         ),
       ),
