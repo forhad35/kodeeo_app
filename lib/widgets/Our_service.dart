@@ -8,25 +8,25 @@ class OurService  {
   static var itemList= ServiceDataList().getData();
 
 
-  static Widget slider() {
-    return  Container(
-      child: CarouselSlider(
-        options: CarouselOptions(autoPlay: true, enableInfiniteScroll: true),
-        items: itemList
-            .map((item) => Container(
-              width: 150,
-              height: 100,
-              child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: imageLoader(imageUrl: item.imageUrl)
-                  ),
-              ),
-            ))
-            .toList(),
-      ),
-    );
-  }
+  // static Widget slider() {
+  //   return  Container(
+  //     child: CarouselSlider(
+  //       options: CarouselOptions(autoPlay: true, enableInfiniteScroll: true),
+  //       items: itemList
+  //           .map((item) => Container(
+  //             width: 150,
+  //             height: 100,
+  //             child: Center(
+  //                 child: Padding(
+  //                   padding: const EdgeInsets.all(8.0),
+  //                   child: imageLoader(imageUrl: item.imageUrl,fit: BoxFit.fitWidth)
+  //                 ),
+  //             ),
+  //           ))
+  //           .toList(),
+  //     ),
+  //   );
+  // }
 
   static Widget ourService_singlePage(){
     return Scaffold(
@@ -35,8 +35,10 @@ class OurService  {
         padding: const EdgeInsets.all(6.35),
         child: Container(
           child: GridView.count(
+            childAspectRatio: (300/350),
               crossAxisCount: 2,
-              children: List.generate(itemList.length, (index) {
+              children: List.generate(
+                  itemList.length, (index) {
             return Container(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               decoration: BoxDecoration(
@@ -53,7 +55,7 @@ class OurService  {
               child: Column(
               children:[
                 SizedBox(height: 5,),
-                imageLoader(imageUrl:itemList[index].imageUrl,width: 50,height: 30,),
+                imageLoader(imageUrl:itemList[index].imageUrl,width: 50,height: 30,fit: BoxFit.fitHeight),
                 SizedBox(height: 5,),
                 Text(itemList[index].title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 13),),
                 SizedBox(height: 5,),

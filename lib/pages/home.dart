@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     var myData = BootCamp.myData;
-    var _width = MediaQuery.of(context).size.width;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text("Kodeeo"),
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                             return Padding(
                               padding: const EdgeInsets.only(left: 10, right: 10),
                               child: SizedBox(
-                                width: _width * 0.70,
+                                width: width * 0.70,
                                 child: Card(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   elevation: 3,
@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          width: _width * 0.90,
+                                          width: width * 0.90,
                                           height: 150,
                                           child: Image.network(
                                               fit: BoxFit.fill,
