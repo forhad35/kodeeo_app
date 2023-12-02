@@ -31,11 +31,11 @@ class _ChangPasswordState extends State<ChangPassword> {
             child: Column(
               children: [
                 SizedBox(height: displayHeight(context)*0.07,),
-                Text("Create new Password",style: TextStyle(fontSize: 24),),
+                Text("Create new Password",style: TextStyle(fontSize: 20),),
                 SizedBox(height: displayHeight(context)*0.025,),
                 Container(
                   width: displayWidth(context)*0.4,
-                  child: Image.asset("images/lock.png",height: 150,),
+                  child: Image.asset("images/lock.png",height: 100,),
                 ),
                 SizedBox(height: 30,),
                Container(

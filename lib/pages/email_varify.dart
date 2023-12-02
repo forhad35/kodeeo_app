@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kodeeo_app/helper/display.dart';
+import 'package:kodeeo_app/pages/change_password.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 class EmailVerification extends StatefulWidget {
   const EmailVerification({super.key});
@@ -13,7 +14,7 @@ class _EmailVerificationState extends State<EmailVerification> {
   final scaffoldKey = GlobalKey();
   final formKey = GlobalKey<FormState>();
 
-
+bool isOtpMatch = true;
 
   @override
   Widget build(BuildContext context) {
@@ -31,166 +32,166 @@ class _EmailVerificationState extends State<EmailVerification> {
               SizedBox(height: displayHeight(context)*0.07,),
               SizedBox(
                 width: displayWidth(context)*0.5,
-                child: Image.asset("images/email.png",height: 200,),
+                child: Image.asset("images/email.png",height: 100,),
               ),
               const Text("Check Your Mail For Security Code"),
               const SizedBox(height: 50,),
               const Text("Enter 4 Digit Verification Code ",
                 style: TextStyle(fontSize: 14,),),
               const SizedBox(height: 30,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    height: 68,
-                    width: 64,
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      style:Theme.of(context).textTheme.headlineMedium,
-                      onChanged: (value){
-                        if(value.length == 1){
-                          FocusScope.of(context).nextFocus();
-                        }
-                      },
-                      inputFormatters: [
-                        LengthLimitingTextInputFormatter(1),
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo),
-                          borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        fillColor: Colors.black12,
-                        filled: true,
-                      ),
-
-
-                    ),
-                  ),
-                  SizedBox(
-                    height: 68,
-                    width: 64,
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      style:Theme.of(context).textTheme.headlineMedium,
-                      onChanged: (value){
-                        if(value.length == 1){
-                          FocusScope.of(context).nextFocus();
-                        }
-                      },
-                      inputFormatters: [
-                        LengthLimitingTextInputFormatter(1),
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.indigo),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        fillColor: Colors.black12,
-                        filled: true,
-                      ),
-
-
-                    ),
-                  ),
-                  SizedBox(
-                    height: 68,
-                    width: 64,
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      style:Theme.of(context).textTheme.headlineMedium,
-                      onChanged: (value){
-                        if(value.length == 1){
-                          FocusScope.of(context).nextFocus();
-                        }
-                      },
-                      inputFormatters: [
-                        LengthLimitingTextInputFormatter(1),
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.indigo),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        fillColor: Colors.black12,
-                        filled: true,
-                      ),
-
-
-                    ),
-                  ),
-                  SizedBox(
-                    height: 68,
-                    width: 64,
-                    child: TextFormField(
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      style:Theme.of(context).textTheme.headlineMedium,
-                      onChanged: (value){
-                        if(value.length == 1){
-                          FocusScope.of(context).nextFocus();
-                        }
-                      },
-                      inputFormatters: [
-                        LengthLimitingTextInputFormatter(1),
-                        FilteringTextInputFormatter.digitsOnly,
-                      ],
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: const InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.indigo),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        disabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(4))
-                        ),
-                        fillColor: Colors.black12,
-                        filled: true,
-                      ),
-
-
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
+              //     SizedBox(
+              //       height: 68,
+              //       width: 64,
+              //       child: TextFormField(
+              //         textAlign: TextAlign.center,
+              //         keyboardType: TextInputType.number,
+              //         style:Theme.of(context).textTheme.headlineMedium,
+              //         onChanged: (value){
+              //           if(value.length == 1){
+              //             FocusScope.of(context).nextFocus();
+              //           }
+              //         },
+              //         inputFormatters: [
+              //           LengthLimitingTextInputFormatter(1),
+              //           FilteringTextInputFormatter.digitsOnly,
+              //         ],
+              //         textAlignVertical: TextAlignVertical.center,
+              //         decoration: const InputDecoration(
+              //           focusedBorder: OutlineInputBorder(
+              //             borderSide: BorderSide(color: Colors.indigo),
+              //             borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           disabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           fillColor: Colors.black12,
+              //           filled: true,
+              //         ),
+              //
+              //
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height: 68,
+              //       width: 64,
+              //       child: TextFormField(
+              //         textAlign: TextAlign.center,
+              //         keyboardType: TextInputType.number,
+              //         style:Theme.of(context).textTheme.headlineMedium,
+              //         onChanged: (value){
+              //           if(value.length == 1){
+              //             FocusScope.of(context).nextFocus();
+              //           }
+              //         },
+              //         inputFormatters: [
+              //           LengthLimitingTextInputFormatter(1),
+              //           FilteringTextInputFormatter.digitsOnly,
+              //         ],
+              //         textAlignVertical: TextAlignVertical.center,
+              //         decoration: const InputDecoration(
+              //           focusedBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.indigo),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           disabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           fillColor: Colors.black12,
+              //           filled: true,
+              //         ),
+              //
+              //
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height: 68,
+              //       width: 64,
+              //       child: TextFormField(
+              //         textAlign: TextAlign.center,
+              //         keyboardType: TextInputType.number,
+              //         style:Theme.of(context).textTheme.headlineMedium,
+              //         onChanged: (value){
+              //           if(value.length == 1){
+              //             FocusScope.of(context).nextFocus();
+              //           }
+              //         },
+              //         inputFormatters: [
+              //           LengthLimitingTextInputFormatter(1),
+              //           FilteringTextInputFormatter.digitsOnly,
+              //         ],
+              //         textAlignVertical: TextAlignVertical.center,
+              //         decoration: const InputDecoration(
+              //           focusedBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.indigo),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           disabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           fillColor: Colors.black12,
+              //           filled: true,
+              //         ),
+              //
+              //
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       height: 68,
+              //       width: 64,
+              //       child: TextFormField(
+              //         textAlign: TextAlign.center,
+              //         keyboardType: TextInputType.number,
+              //         style:Theme.of(context).textTheme.headlineMedium,
+              //         onChanged: (value){
+              //           if(value.length == 1){
+              //             FocusScope.of(context).nextFocus();
+              //           }
+              //         },
+              //         inputFormatters: [
+              //           LengthLimitingTextInputFormatter(1),
+              //           FilteringTextInputFormatter.digitsOnly,
+              //         ],
+              //         textAlignVertical: TextAlignVertical.center,
+              //         decoration: const InputDecoration(
+              //           focusedBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.indigo),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           disabledBorder: OutlineInputBorder(
+              //               borderSide: BorderSide(color: Colors.transparent),
+              //               borderRadius: BorderRadius.all(Radius.circular(4))
+              //           ),
+              //           fillColor: Colors.black12,
+              //           filled: true,
+              //         ),
+              //
+              //
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Form(
                 key: formKey,
                 child: Padding(
@@ -204,7 +205,7 @@ class _EmailVerificationState extends State<EmailVerification> {
                       color: Colors.green.shade600,
                       fontWeight: FontWeight.bold,
                     ),
-                    length: 6,
+                    length: 4,
                     // obscureText: true,
                     // obscuringCharacter: '*',
                     // obscuringWidget: const FlutterLogo(
@@ -222,9 +223,11 @@ class _EmailVerificationState extends State<EmailVerification> {
                     pinTheme: PinTheme(
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(5),
-                      fieldHeight: 50,
-                      fieldWidth: 40,
+                      fieldHeight: 40,
+                      fieldWidth: 30,
                       activeFillColor: Colors.white,
+                      activeBorderWidth: 1,
+                      errorBorderWidth: 1,
                     ),
                     cursorColor: Colors.black,
                     animationDuration: const Duration(milliseconds: 300),
@@ -232,15 +235,27 @@ class _EmailVerificationState extends State<EmailVerification> {
                     // errorAnimationController: errorController,
                     // controller: textEditingController,
                     keyboardType: TextInputType.number,
-                    boxShadows: const [
-                      BoxShadow(
-                        offset: Offset(0, 1),
-                        color: Colors.black12,
-                        blurRadius: 10,
-                      )
-                    ],
+                    // boxShadows: const [
+                    //   BoxShadow(
+                    //     offset: Offset(0, 1),
+                    //     color: Colors.black12,
+                    //     blurRadius: 10,
+                    //   )
+                    // ],
                     onCompleted: (v) {
-                      debugPrint("Completed");
+                      var otp = "2222";
+                      if(otp == v){
+                        isOtpMatch= true;
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangPassword()));
+                        setState(() {
+
+                        });
+                      }else{
+                        isOtpMatch = false;
+                        setState(() {
+
+                        });
+                      }
                     },
                     // onTap: () {
                     //   print("Pressed");
@@ -260,7 +275,9 @@ class _EmailVerificationState extends State<EmailVerification> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30,),
+              Text( isOtpMatch ? "":" Otp doesn't match"),
+              // const SizedBox(height: 10,),
+
 
             ElevatedButton(
               onPressed: () {  },

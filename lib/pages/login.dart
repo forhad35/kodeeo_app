@@ -50,7 +50,6 @@ String? helper ;
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: displayHeight(context)-100,
           width: displayWidth(context),
           child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -58,147 +57,141 @@ String? helper ;
           key: _loginkey,
           child: Column(
             children: [
-              SizedBox(
-                height: 50,
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
               Image.asset("images/img.png",
-                height: 100,
-                width: 130,
+                height: 70,
+                width: 70,
               ),
-              SizedBox(height: 25,),
+              SizedBox(height: 10,),
               Text(widget.courseId!=null?"Please Login to enroll":"",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
               SizedBox(
-                height: 50,
+                height: 10,
               ),
-              TextFormField(
-                controller: _EmailController,
-                validator: (value){
+              SizedBox(
+                height: 40,
+                width: MediaQuery.sizeOf(context).width *0.90,
+                child: TextFormField(
+                  controller: _EmailController,
+                  validator: (value){
 
-                  if(value == ""){
-                    return " Please enter email";
-                  }else if(value != email){
-                     return " Email doesn't  match";
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  // userData[0] = value.toString();
-                  // setState(() {
-                    // helper= value.toString();
-                    // if(!RegExp(emailRegex).hasMatch(value)){
-                    //   helper="invalid mail";
-                    // }else{
-                    //   helper="velid";
-                    // }
-                  // });
-                },
-                style: TextStyle(height: 1),
-                decoration: InputDecoration(
-                  errorStyle: TextStyle(color: Colors.red,fontSize: 12),
-                  isDense: true,
-                  contentPadding: EdgeInsets.only(top: 10,bottom: 10),
-                  labelText: "Email",
-                  prefixIcon: Icon(Icons.email),
-                  labelStyle: TextStyle(fontSize: 14),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.orange)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.indigo)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.redAccent)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.redAccent)),
+                    if(value == ""){
+                      return " Please enter email";
+                    }else if(value != email){
+                       return " Email doesn't  match";
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    // userData[0] = value.toString();
+                    // setState(() {
+                      // helper= value.toString();
+                      // if(!RegExp(emailRegex).hasMatch(value)){
+                      //   helper="invalid mail";
+                      // }else{
+                      //   helper="velid";
+                      // }
+                    // });
+                  },
+                  style: TextStyle(height: 1,fontSize: 12),
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(color: Colors.red,fontSize: 12),
+                    labelText: "Email",
+                    prefixIcon: Icon(Icons.email),
+                    labelStyle: TextStyle(fontSize: 14),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.orange)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.indigo)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
 
+                  ),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              TextFormField(
-                validator: (value){
-                  if(value == ""){
-                    return " Please enter password";
-                  }else if(value != pass){
-                    return " Password doesn't  match";
-                  }
-                },
-                // onChanged: (value) {
-                //   userData[1] = value.toString();
-                // },
-                controller: _PassController,
+              SizedBox(
+                height: 40,
+                width: MediaQuery.sizeOf(context).width *0.90,
+                child: TextFormField(
+                  validator: (value){
+                    if(value == ""){
+                      return " Please enter password";
+                    }else if(value != pass){
+                      return " Password doesn't  match";
+                    }
+                    return null;
+                  },
+                  // onChanged: (value) {
+                  //   userData[1] = value.toString();
+                  // },
+                  controller: _PassController,
 
-                obscureText: passwordVisible,
-                decoration: InputDecoration(
-                  errorStyle: TextStyle(color: Colors.red,fontSize: 12),
-                  isDense: true,
-                  contentPadding: EdgeInsets.only(top: 10,bottom: 10),
-                  labelText: "Password",
-                  prefixIcon: Icon(Icons.lock,),
-                  labelStyle:
-                  TextStyle(fontSize: 14,),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.orange)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.indigo)),
-                  errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.redAccent)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide: BorderSide(width: 2, color: Colors.redAccent)),
-                  suffixIcon: IconButton(
-                    icon: Icon(passwordVisible
-                        ? Icons.visibility
-                        : Icons.visibility_off,size: 14,),
-                    onPressed: () {
-                      setState(
-                            () {
-                          passwordVisible = !passwordVisible;
-                        },
-                      );
-                    },
+                  obscureText: passwordVisible,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(color: Colors.red,fontSize: 12),
+                    labelText: "Password",
+                    prefixIcon: Icon(Icons.lock,size: 12,),
+                    labelStyle: TextStyle(fontSize: 12,),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.orange)),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.indigo)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(width: 1, color: Colors.redAccent)),
+                    suffixIcon: IconButton(
+                      icon: Icon(passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,size: 14,),
+                      onPressed: () {
+                        setState(
+                              () {
+                            passwordVisible = !passwordVisible;
+                          },
+                        );
+                      },
+                    ),
+                    alignLabelWithHint: false,
+                    // filled: true,
                   ),
-                  alignLabelWithHint: false,
-                  // filled: true,
+                  keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done,
                 ),
-                keyboardType: TextInputType.visiblePassword,
-                textInputAction: TextInputAction.done,
               ),
               Container(
-                margin: EdgeInsets.only(top: 15,bottom: 15),
+                margin: EdgeInsets.only(top: 15,bottom: 15,left: 15),
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Checkbox(value: isChecked.$, onChanged: (value){
-                      setState(() {
-                        isChecked.$=value!;
-                      });
-                    },
+                    Transform.scale(
+                      scale: 0.7,
+                      child: Checkbox(value: isChecked.$, onChanged: (value){
+                        setState(() {
+                          isChecked.$=value!;
+                        });
+                      },
+                      ),
                     ),
-                    Text("Remember Me"),
+                    Text("Remember Me",style: TextStyle(fontSize: 12),),
                   ],
                 ),
 
               ),
-
-              TextButton(
-                  onPressed: () {
-                    _EmailController.clear();
-                    _PassController.clear();
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PassReset()));
-
-                  },
-                  child: Text(
-                    "Forgot Password!",
-                    style: TextStyle(fontSize: 14),
-                  )),
-              SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () {
                     print(userData);
@@ -231,35 +224,37 @@ String? helper ;
                       foregroundColor: Colors.orange,
                       backgroundColor: Colors.white),
                   child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width*0.7,
+                    width: MediaQuery.sizeOf(context).width*0.5,
                     height: 40,
                     child: Text(
                       "LogIn",
                       style: TextStyle(
-                          fontSize: 18,height: 2),
+                          fontSize: 16,height: 2.5),
                       textAlign: TextAlign.center,
                     ),
                   )),
-              // SizedBox(
-              //   height: 120,
-              // ),
-              Expanded(
-                flex: 1,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Don't have an account!"),
-                      TextButton(onPressed: (){
-                        _EmailController.clear();
-                        _PassController.clear();
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Registration()));
-                      },
-                    child: Text("Register Here!")),
-                    ],
-                  ),
-                ),
+              TextButton(
+                  onPressed: () {
+                    _EmailController.clear();
+                    _PassController.clear();
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PassReset()));
+
+                  },
+                  child: Text(
+                    "Forgot Password!",
+                    style: TextStyle(fontSize: 12),
+                  )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account!"),
+                  TextButton(onPressed: (){
+                    _EmailController.clear();
+                    _PassController.clear();
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Registration()));
+                  },
+                child: Text("Register Here!")),
+                ],
               ),
             ],
           ),
