@@ -143,10 +143,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           width: width * 0.90,
                                           height: 150,
-                                          child: Image.network(
-                                              fit: BoxFit.fill,
-                                              repeat: ImageRepeat.noRepeat,
-                                              "${myData[index]["image"]}"),
+                                          child: imageLoader(imageUrl: myData[index]["image"]),
                                         ),
                                         Container(
                                           margin: EdgeInsets.all(10),

@@ -6,7 +6,7 @@ Widget imageLoader(
       BoxFit fit = BoxFit.fill,
       double width = double.infinity,
       double? height,
-     String errorImage = "images/error.gif"
+     String? errorImage,
     }
     ){
   return  CachedNetworkImage(
