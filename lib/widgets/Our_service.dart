@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kodeeo_app/data/model/ServiceModel.dart';
 import 'package:kodeeo_app/helper/image.dart';
 class OurService  {
-  // OurService({super.key});
   static var itemList= ServiceDataList().getData();
-
 
   // static Widget slider() {
   //   return  Container(

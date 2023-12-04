@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:kodeeo_app/api/login.dart';
 import 'package:kodeeo_app/helper/display.dart';
 import 'package:kodeeo_app/pages/home.dart';
 import 'package:kodeeo_app/pages/password_reset.dart';
@@ -24,8 +27,8 @@ class _LoginState extends State<Login> {
   bool passwordVisible = false;
   var _EmailController = TextEditingController();
   var _PassController = TextEditingController();
-  var pass = "kodeeo";
-  var email = "kodeeo@gmail.com";
+  var pass = "mypass";
+  var email = "saju123@gmail.com";
    final _loginkey = GlobalKey<FormState>();
   List<String> userData = [];
 String? helper ;
@@ -75,21 +78,11 @@ String? helper ;
 
                   if(value == ""){
                     return " Please enter email";
-                  }else if(value != email){
-                     return " Email doesn't  match";
                   }
+                  // else if(value != email){
+                  //    return " Email doesn't  match";
+                  // }
                   return null;
-                },
-                onChanged: (value) {
-                  // userData[0] = value.toString();
-                  // setState(() {
-                    // helper= value.toString();
-                    // if(!RegExp(emailRegex).hasMatch(value)){
-                    //   helper="invalid mail";
-                    // }else{
-                    //   helper="velid";
-                    // }
-                  // });
                 },
 
                 style: TextStyle(height: 1,fontSize: 12),
@@ -120,9 +113,10 @@ String? helper ;
                 validator: (value){
                   if(value == ""){
                     return " Please enter password";
-                  }else if(value != pass){
-                    return " Password doesn't  match";
                   }
+                  // else if(value != pass){
+                  //   return " Password doesn't  match";
+                  // }
                   return null;
                 },
                 // onChanged: (value) {
@@ -190,21 +184,29 @@ String? helper ;
                   onPressed: () {
                     print(userData);
                     // _EmailController.clear();
-                    setState(() {
+                    setState(() async {
                       if(_loginkey.currentState!.validate()){
-                        is_log_in.$ = true;
-                        is_log_in.save();
+
                         if(isChecked.$){
                           sharedEmail.$=_EmailController.text;
                           sharedPass.$=_PassController.text;
                           sharedEmail.save();
                           sharedPass.save();
                         }
+                       bool data =await LoginApi.userLogin(_EmailController.text, _PassController.text);
+                       if(data){
+                         is_log_in.$ = true;
+                         is_log_in.save();
+                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
+                       }else{
+                         Get.snackbar(
+                           "Login Alert",
+                           "Wrong User Info!"
+                         );
+                       }
 
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
-                        print( "Email: ${_EmailController.text } ,password : ${_PassController.text}");
                       }else{
-                        print(" not validet");
+                        print("Wrong User Info!!");
 
                       }
                     });

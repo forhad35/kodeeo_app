@@ -10,7 +10,8 @@ SharedValue<bool> isChecked = SharedValue(
     value: false, //initial value
     key: "isChecked"
 );
-// SharedValue<bool> isLogin=SharedValue(value: false,key: "isLogin");
-// SharedValue<bool> isChecked=SharedValue(value: false,key: "isCheked");
+
 SharedValue<String> sharedEmail=SharedValue(value: "",key: "email");
 SharedValue<String> sharedPass=SharedValue(value: "",key: "pass");
+SharedValue<String> userToken=SharedValue(value: "",key: "token");
+
