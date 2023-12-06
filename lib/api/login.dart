@@ -20,9 +20,8 @@ try{
   }else{
     return false;
   }
-
 }catch(exception){
-  print(exception);
+  //print(exception);
   return false;
 }
   }

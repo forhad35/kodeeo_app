@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:kodeeo_app/api/signup.dart';
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -8,8 +12,14 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
+  bool isProcessing=false;
+  var _name = TextEditingController();
+  var _email = TextEditingController();
+  var _phone = TextEditingController();
+  var _reference = TextEditingController();
+  var _institute = TextEditingController();
 
-  var inputData =  [];
+
   final _registrationkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -30,10 +40,7 @@ class _RegistrationState extends State<Registration> {
                   margin: EdgeInsets.all(10),
                   height: 50,
                   child: TextFormField(
-
-                    onChanged: (value) {
-                      inputData[0] = value.toString();
-                    },
+                    controller: _name,
                     decoration: InputDecoration(
                       labelText: "Name",
                       hintText: "Your Name",
@@ -60,9 +67,7 @@ class _RegistrationState extends State<Registration> {
                   margin: EdgeInsets.all(10),
                   height: 50,
                   child: TextFormField(
-                    onChanged: (value) {
-                      inputData[0] = value.toString();
-                    },
+                    controller: _email,
                     decoration: InputDecoration(
                       labelText: "Email",
                       hintText: "example@gmail.com",
@@ -89,9 +94,7 @@ class _RegistrationState extends State<Registration> {
                   margin: EdgeInsets.all(10),
                   height: 50,
                   child: TextFormField(
-                    onChanged: (value) {
-                      inputData[0] = value.toString();
-                    },
+                    controller: _phone,
                     decoration: InputDecoration(
                       labelText: "Phone",
                       hintText: "017xxxxxxx",
@@ -118,9 +121,7 @@ class _RegistrationState extends State<Registration> {
                   margin: EdgeInsets.all(10),
                   height: 50,
                   child: TextFormField(
-                    onChanged: (value) {
-                      inputData[0] = value.toString();
-                    },
+                   controller: _reference,
                     decoration: InputDecoration(
                       labelText: "Reference Name(optional)",
                       hintText: "Reference Name",
@@ -147,9 +148,7 @@ class _RegistrationState extends State<Registration> {
                   margin: EdgeInsets.all(10),
                   height: 50,
                   child: TextFormField(
-                    onChanged: (value) {
-                      inputData[0] = value.toString();
-                    },
+                    controller: _institute,
                     decoration: InputDecoration(
                       labelText: "Institute (optional)",
                       hintText: "IUBAT",
@@ -172,31 +171,28 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
 
-                Container(
-                  padding: EdgeInsets.only(top: 15,bottom: 15),
-                  child: ElevatedButton(
-                      onPressed: () {
-
-                        //SharedPref().setData("id", "11022");
-                        // SharedPref.getData("user");
-                        // SharedPref.getData("id");
-
-
-                      },
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.orange,
-                          backgroundColor: Colors.white),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width*0.7,
-                        height: 50,
-                        child: Text(
-                          "Course Register",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold,height: 2.7),
-                          textAlign: TextAlign.center,
-                        ),
-                      )),
-                ),
+                // submit button
+                buttonWidget(),
+                // Container(
+                //   padding: EdgeInsets.only(top: 15,bottom: 15),
+                //   child: ElevatedButton(
+                //       onPressed: () async {
+                //        bool status = await SignupApi.userSignup(inputData[0], inputData[1], inputData[2]);
+                //       },
+                //       style: ElevatedButton.styleFrom(
+                //           foregroundColor: Colors.orange,
+                //           backgroundColor: Colors.white),
+                //       child: SizedBox(
+                //         width: MediaQuery.sizeOf(context).width*0.7,
+                //         height: 50,
+                //         child: Text(
+                //           "Course Register",
+                //           style: TextStyle(
+                //               fontSize: 18, fontWeight: FontWeight.bold,height: 2.7),
+                //           textAlign: TextAlign.center,
+                //         ),
+                //       )),
+                // ),
 
                 Container(
                   padding: EdgeInsets.only(top: 15,bottom: 15),
@@ -217,13 +213,60 @@ class _RegistrationState extends State<Registration> {
                     ],
                   ),
                 ),
-
-
               ],
             ),
           ),
         ),
       ),
     );
+  }
+  buttonWidget(){
+    setState(() {
+    });
+    if(isProcessing){
+      return const Center(child: CircularProgressIndicator());
+    }else{
+      return  Container(
+        padding: EdgeInsets.only(top: 15,bottom: 15),
+        child: ElevatedButton(
+            onPressed: () async {
+              isProcessing=true;
+              setState(() {
+
+              });
+              bool status = await SignupApi.userSignup(_name.text, _email.text, _phone.text);
+              if(status){
+                isProcessing=false;
+                setState(() {
+                });
+                Get.snackbar(
+                  "Registration",
+                  "Registration Success!"
+                );
+              }else{
+                isProcessing=false;
+                setState(() {
+                });
+                Get.snackbar(
+                    "Registration",
+                    "Registration Failed!"
+                );
+              }
+            },
+            style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.orange,
+                backgroundColor: Colors.white),
+            child: SizedBox(
+              width: MediaQuery.sizeOf(context).width*0.7,
+              height: 50,
+              child: Text(
+                "Course Register",
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold,height: 2.7),
+                textAlign: TextAlign.center,
+              ),
+            )),
+      );
+    }
   }
 }
