@@ -1,17 +1,15 @@
-
-
 import 'package:shared_value/shared_value.dart';
 
-SharedValue<bool> is_log_in = SharedValue(
+SharedValue<bool> isLogin = SharedValue(
     value: false, //initial value
-    key: "is_log_in"
+    key: "isLogin"
 );
 SharedValue<bool> isChecked = SharedValue(
     value: false, //initial value
     key: "isChecked"
 );
 
-SharedValue<String> sharedEmail=SharedValue(value: "",key: "email");
-SharedValue<String> sharedPass=SharedValue(value: "",key: "pass");
-SharedValue<String> userToken=SharedValue(value: "",key: "token");
+SharedValue<String> sharedEmail=SharedValue(value: "",key: "sharedEmail");
+SharedValue<String> sharedPass=SharedValue(value: "",key: "sharedPass");
+SharedValue<String> userToken=SharedValue(value: "",key: "userToken");
 

@@ -49,7 +49,7 @@ class AboutCourse extends StatelessWidget {
                     backgroundColor: Colors.orangeAccent
                 ),),
               ElevatedButton(onPressed: (){
-                if(is_log_in.$){
+                if(isLogin.$){
                   showDialog(context: context,
                       builder: (context){
                     return const AlertDialog(

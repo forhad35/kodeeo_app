@@ -73,10 +73,10 @@ class Drawers extends StatelessWidget {
               title:  Text('Photo gallery',style: TextStyle(fontSize: 14,),),
             ),
           ),
-          is_log_in.$ == true?InkWell(
+          isLogin.$ == true?InkWell(
             onTap: (){
-              is_log_in.$ = false;
-              is_log_in.save();
+              isLogin.$ = false;
+              isLogin.save();
               Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
             },
             child: ListTile(

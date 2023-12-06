@@ -27,8 +27,8 @@ class _LoginState extends State<Login> {
   bool passwordVisible = false;
   var _EmailController = TextEditingController();
   var _PassController = TextEditingController();
-  var pass = "mypass";
-  var email = "saju123@gmail.com";
+  // var pass = "mypass";
+  // var email = "saju123@gmail.com";
   bool processing=false;
 
    final _loginkey = GlobalKey<FormState>();
@@ -51,17 +51,7 @@ String? helper ;
         title: Text("Login"),
         centerTitle: true,
       ),
-      body: body(),
-    );
-  }
-
-
-//   body components
-body(){
-    if(processing){
-      return Center(child: CircularProgressIndicator());
-    }else{
-      return SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
           width: displayWidth(context),
           child: Padding(
@@ -86,7 +76,7 @@ body(){
                         return " Please enter email";
                       }
                       else if(!RegExp(emailRegex).hasMatch(value!)){
-                         return " Input Valid Email";
+                        return " Input Valid Email";
                       }
                       return null;
                     },
@@ -121,9 +111,6 @@ body(){
                       if(value == ""){
                         return " Please enter password";
                       }
-                      // else if(value != pass){
-                      //   return " Password doesn't  match";
-                      // }
                       return null;
                     },
                     controller: _PassController,
@@ -174,6 +161,7 @@ body(){
                           child: Checkbox(value: isChecked.$, onChanged: (value){
                             setState(() {
                               isChecked.$=value!;
+                              isChecked.save();
                             });
                           },
                           ),
@@ -183,65 +171,8 @@ body(){
                     ),
 
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        processing=true;
-                        setState(() {
-
-                        });
-                        setState(() async {
-                          if(_loginkey.currentState!.validate()){
-
-                            if(isChecked.$){
-                              sharedEmail.$=_EmailController.text;
-                              sharedPass.$=_PassController.text;
-                              sharedEmail.save();
-                              sharedPass.save();
-                            }
-                            bool data =await LoginApi.userLogin(_EmailController.text, _PassController.text);
-                            if(data){
-                              is_log_in.$ = true;
-                              is_log_in.save();
-                              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
-                            }else{
-                              processing=false;
-                              setState(() {
-
-                              });
-                              Get.snackbar(
-                                  "Login Alert",
-                                  "Wrong User Info!"
-                              );
-                            }
-
-                          }else{
-                            processing=false;
-                            setState(() {
-
-                            });
-                            print("Wrong User Info!!");
-
-                          }
-                        });
-                        // setState(() {
-                        //   userData[0]=_EmailController.text;
-                        //   userData[1]=_PassController.text;
-                        //
-                        // });
-                      },
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.orange,
-                          backgroundColor: Colors.white),
-                      child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width*0.5,
-                        height: 40,
-                        child: Text(
-                          "LogIn",
-                          style: TextStyle(
-                              fontSize: 16,height: 2.5),
-                          textAlign: TextAlign.center,
-                        ),
-                      )),
+                  // login submit button
+                 loginButton(),
                   TextButton(
                       onPressed: () {
                         _EmailController.clear();
@@ -260,7 +191,7 @@ body(){
                       TextButton(onPressed: (){
                         _EmailController.clear();
                         _PassController.clear();
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Registration()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const Registration()));
                       },
                           child: Text("Register Here!")),
                     ],
@@ -270,6 +201,68 @@ body(){
             ),
           ),
         ),
+      ),
+    );
+  }
+
+
+//   body components
+loginButton(){
+    if(processing){
+      return Center(child: CircularProgressIndicator());
+    }else{
+      return ElevatedButton(
+          onPressed: () {
+            processing=true;
+            setState(() {});
+            setState(() async {
+              if(_loginkey.currentState!.validate()){
+
+                if(isChecked.$){
+                  sharedEmail.$=_EmailController.text;
+                  sharedPass.$=_PassController.text;
+                  sharedEmail.save();
+                  sharedPass.save();
+                }
+                bool data =await LoginApi.userLogin(_EmailController.text, _PassController.text);
+                if(data){
+                  isLogin.$ = true;
+                  isLogin.save();
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
+                }else{
+                  processing=false;
+                  setState(() {
+
+                  });
+                  Get.snackbar(
+                      "Login Alert",
+                      "Wrong User Info!"
+                  );
+                }
+
+              }else{
+                processing=false;
+                setState(() {
+
+                });
+                print("Wrong User Info!!");
+
+              }
+            });
+          },
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.orange,
+              backgroundColor: Colors.white),
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width*0.5,
+            height: 40,
+            child: Text(
+              "LogIn",
+              style: TextStyle(
+                  fontSize: 16,height: 2.5),
+              textAlign: TextAlign.center,
+            ),
+          )
       );
     }
 }
