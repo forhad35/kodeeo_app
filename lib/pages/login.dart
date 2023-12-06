@@ -32,9 +32,8 @@ class _LoginState extends State<Login> {
   bool processing=false;
 
    final _loginkey = GlobalKey<FormState>();
-  List<String> userData = [];
 String? helper ;
-  String emailRegex = r'^[\w-]+(\.[a-z]{2,8}+)*@[\w-]+(\.[\w-]+)*(\.[a-z]{2,4})$';
+  String emailRegex = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
 // var isEnrollment = widget.courseId ;
   @override
   void initState() {
@@ -71,9 +70,6 @@ body(){
               key: _loginkey,
               child: Column(
                 children: [
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
                   Image.asset("images/img.png",
                     height: 70,
                     width: 70,
@@ -86,13 +82,12 @@ body(){
                   TextFormField(
                     controller: _EmailController,
                     validator: (value){
-
                       if(value == ""){
                         return " Please enter email";
                       }
-                      // else if(value != email){
-                      //    return " Email doesn't  match";
-                      // }
+                      else if(!RegExp(emailRegex).hasMatch(value!)){
+                         return " Input Valid Email";
+                      }
                       return null;
                     },
 
@@ -117,6 +112,7 @@ body(){
 
                     ),
                   ),
+
                   SizedBox(
                     height: 20,
                   ),
@@ -130,11 +126,7 @@ body(){
                       // }
                       return null;
                     },
-                    // onChanged: (value) {
-                    //   userData[1] = value.toString();
-                    // },
                     controller: _PassController,
-
                     obscureText: passwordVisible,
                     style: TextStyle(height: 1,fontSize: 12),
                     decoration: InputDecoration(
@@ -197,8 +189,6 @@ body(){
                         setState(() {
 
                         });
-                        print(userData);
-                        // _EmailController.clear();
                         setState(() async {
                           if(_loginkey.currentState!.validate()){
 
