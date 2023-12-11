@@ -231,21 +231,21 @@ class _RegistrationState extends State<Registration> {
               if(_registrationkey.currentState!.validate()) {
                 isProcessing = true;
                 setState(() {});
-                bool status = await SignupApi.userSignup(
+                var data = await SignupApi.userSignup(
                     _name.text, _email.text, _phone.text);
-                if (status) {
+                if (data['status']) {
                   isProcessing = false;
                   setState(() {});
                   Get.snackbar(
                       "Registration",
-                      "Registration Success!"
+                      "${data['message']}"
                   );
                 } else {
                   isProcessing = false;
                   setState(() {});
                   Get.snackbar(
                       "Registration",
-                      "Registration Failed!"
+                      "${data['message']}"
                   );
                 }
               }

@@ -13,7 +13,7 @@ try{
   body: {"email":email, "password":password,}
   );
   dynamic data = jsonDecode(response.body);
-  if(data["LoggedIn"]){
+  if(response.statusCode >=200 && response.statusCode <= 299){
     userToken.$=data["token"];
     userToken.save();
     return {"status":true,"message":"login successful"};
@@ -22,7 +22,7 @@ try{
   }
 }catch(exception){
   //print(exception);
-  return {"status":false,"message":"Connection Problem occurs!"};
+  return {"status":false,"message":"A connection problem has occurs!"};
 }
   }
 }
