@@ -5,7 +5,7 @@ import 'package:kodeeo_app/helper/shared_value_helper.dart';
 
 class LoginApi{
   static const String _uri="https://premium-lychee-backendddd-production.up.railway.app/auth/login/";
-  static Future<bool> userLogin(String email,String password) async {
+  static Future<Map<String,dynamic>> userLogin(String email,String password) async {
     Uri url = Uri.parse(_uri);
 try{
   Response response= await post(url,
@@ -16,13 +16,13 @@ try{
   if(data["LoggedIn"]){
     userToken.$=data["token"];
     userToken.save();
-    return true;
+    return {"status":true,"message":"login successful"};
   }else{
-    return false;
+    return {"status":false,"message":data["message"]};
   }
 }catch(exception){
   //print(exception);
-  return false;
+  return {"status":false,"message":"Connection Problem occurs!"};
 }
   }
 }

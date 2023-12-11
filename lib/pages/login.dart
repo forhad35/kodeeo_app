@@ -224,29 +224,23 @@ loginButton(){
                   sharedEmail.save();
                   sharedPass.save();
                 }
-                bool data =await LoginApi.userLogin(_EmailController.text, _PassController.text);
-                if(data){
+                var data = await LoginApi.userLogin(_EmailController.text, _PassController.text);
+                if(data['status']){
                   isLogin.$ = true;
                   isLogin.save();
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Home()), (route) => false);
                 }else{
                   processing=false;
-                  setState(() {
-
-                  });
+                  setState(() {});
                   Get.snackbar(
                       "Login Alert",
-                      "Wrong User Info!"
+                      "${data['message']}"
                   );
                 }
 
               }else{
                 processing=false;
-                setState(() {
-
-                });
-                print("Wrong User Info!!");
-
+                setState(() {});
               }
             });
           },

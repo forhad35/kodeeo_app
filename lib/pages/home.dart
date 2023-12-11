@@ -24,12 +24,14 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   var imgList = PhotosLink.imgList;
+  @override
   initState(){
     isLogin.load();
     isChecked.load();
     sharedEmail.load();
     sharedPass.load();
-    print(isLogin.$);
+    userToken.load();
+
     super.initState();
   }
   @override
