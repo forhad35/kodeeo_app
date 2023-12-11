@@ -3,7 +3,7 @@
 This application is made for  Kodeeo LTD.
 
 ## Getting Started
-##### Contributors : Kodeeo Intern Trainee Programmers - Forhad Ali & Sakhawat Hosain.
+##### Contributors : Kodeeo Intern Trainee Programmers - Forhad Ali & Sakhawat Hossain.
 
 This project has made by Flutter Framework(Dart Language).
 
