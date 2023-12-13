@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "341740538399",
+    "project_id": "teak-banner-385707",
+    "storage_bucket": "teak-banner-385707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341740538399:android:e96d1f4cbab1f0055ce32a",
+        "android_client_info": {
+          "package_name": "com.kodeeo.kodeeo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoAucWkEXVVU7ACpnwKFE0FRgZ0FYGX9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
